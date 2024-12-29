@@ -3,7 +3,7 @@
 #subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
 #support-url: https://t.me/hiddify
 #profile-web-page-url: https://hiddify.com
-#url-test: https://instagram.com
+#test-url: https://instagram.com
 #dns-remote: https://sky.rethinkdns.com/dns-query
 
 direct://?fragment=tlshello,10-100,100-200#Fragment1
