@@ -1,4 +1,5 @@
-[
+{
+"profiles":[
   {
     "region": ["ir", "cn"],
     "title": {"en": "Warp", "fa": "وارپ"},
@@ -42,3 +43,4 @@
     "needed_features": ["warp_over_proxies"]
   }
 ]
+}
