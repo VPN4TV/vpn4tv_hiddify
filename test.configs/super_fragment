@@ -20,12 +20,8 @@
           },
           "servers": [
             "https://dns.cloudflare.com/dns-query",
-            {
-              "address": "localhost",
-              "domains": [
-                "full:cloudflare.com"
-              ]
-            }
+            {"address": "1.1.1.1", "domains": ["full:cloudflare.com"]},
+            {"address": "223.5.5.5", "domains": ["full:cloudflare.com"]}
           ],
           "tag": "dns-query"
         },
