@@ -4,7 +4,7 @@
 #support-url: https://t.me/hiddify
 #profile-web-page-url: https://hiddify.com
 #connection-test-url: https://instagram.com
-#remote-dns-address: https://sky.rethinkdns.com/dns-query
+#remote-dns-address: https://dns.cloudflare.com/dns-query
 
 {
   "outbounds": [
