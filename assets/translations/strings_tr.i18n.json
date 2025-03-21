@@ -180,6 +180,7 @@
         "af": "Afghanistan (af) 🇦🇫",
         "id": "Endonezya (id) 🇮🇩",
         "tr": "Türk (tr) 🇹🇷",
+        "br": "Brezilya (br) 🇧🇷",
         "other": "Diğer"
       },
       "themeMode": "Tema Modu",
@@ -198,7 +199,13 @@
       "ignoreBatteryOptimizationsMsg": "Optimum VPN performansı için kısıtlamaları kaldırın",
       "dynamicNotification": "Bildirimde hızı göster",
       "hapticFeedback": "Dokunsal geribildirim",
-      "autoIpCheck": "Bağlantı IP'sini Otomatik Olarak Kontrol Et"
+      "autoIpCheck": "Bağlantı IP'sini Otomatik Olarak Kontrol Et",
+      "actionAtClosing": "Kapanışta eylem",
+      "actionsAtClosing": {
+        "askEachTime": "Her seferinde sor",
+        "hide": "Saklamak",
+        "exit": "Çıkış"
+      }
     },
     "advanced": {
       "sectionTitle": "Gelişmiş",
@@ -327,6 +334,10 @@
     "reconnectMsg": "Değişiklikleri dikkate almak için yeniden bağlanılıyor..."
   },
   "config": {
+    "useXrayCoreWhenPossible": {
+      "Label": "Mümkün Olduğunda X-ray-çekirdeğini Kullanın",
+      "Description": "Alt bağlantıları ayrıştırırken Xray-core kullanın. Bu seçeneği etkinleştirmek için alt bağlantıyı yeniden içe aktarmanız gerekir."
+    },
     "resetBtn": "Ayarları sıfırla",
     "serviceMode": "Servis modu",
     "quickSettings": "Hızlı Ayarlar",
@@ -416,5 +427,11 @@
     "warpNoiseSize": "Gürültü Boyutu",
     "warpNoiseMode": "Gürültü Modu",
     "warpNoiseDelay": "Gürültü Gecikmesi"
+  },
+  "window": {
+    "hide": "Saklamak",
+    "close": "Çıkış",
+    "alertMessage": "Uygulamayı gizle veya çık?",
+    "remember": "Seçimimi hatırla"
   }
 }
