@@ -388,6 +388,8 @@ linux-appimage-release:
 	sed -i '/^\[Desktop Entry\]/a StartupWMClass=app.hiddify.com' "squashfs-root/hiddify.desktop"; \
 	$(BLUE)Removing old AppImage$(DONE); \
 	rm *.AppImage; \
+	$(BLUE)Deleting bundled libstdc++ to fix Arch Linux compatibility...$(DONE); \
+	find squashfs-root/usr/lib -name "libstdc++.so.6" -delete; \
 	$(BLUE)Rebuilding AppImage$(DONE); \
 	ARCH=x86_64 appimagetool --no-appstream squashfs-root Hiddify.AppImage > /dev/null; \
 	$(BLUE)Cleaning up squashfs$(DONE); \
