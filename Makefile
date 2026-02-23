@@ -398,8 +398,8 @@ linux-appimage-release:
 	PKG_DIR_NAME="hiddify-linux-appimage"; \
 	$(BLUE)Creating dir: $$PKG_DIR_NAME$(DONE); \
 	mkdir -p "$$PKG_DIR_NAME"; \
-	$(BLUE)Moving and Renaming to Hiddify.AppImage$(DONE); \
-	mv "Hiddify.AppImage" "$$PKG_DIR_NAME/Hiddify.AppImage"; \
+	$(BLUE)Moving Hiddify.AppImage$(DONE); \
+	cp -p "Hiddify.AppImage" "$$PKG_DIR_NAME/Hiddify.AppImage"; \
 	$(BLUE)Creating Portable Home directory$(DONE); \
 	mkdir -p "$$PKG_DIR_NAME/Hiddify.AppImage.home"; \
 	$(BLUE)Compressing to .tar.gz$(DONE); \
