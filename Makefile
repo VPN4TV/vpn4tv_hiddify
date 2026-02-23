@@ -92,7 +92,7 @@ ios-prepare: common-prepare ios-libs
 	cd ios; pod repo update; pod install;echo "done ios prepare"
 	
 macos-prepare: common-prepare macos-libs
-linux-prepare: common-prepare linux-libs
+linux-prepare: common-prepare linux-amd64-libs
 
 
 linux-amd64-prepare: common-prepare linux-amd64-libs
