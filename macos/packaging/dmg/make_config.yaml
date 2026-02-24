@@ -1,4 +1,9 @@
 title: Hiddify
+background: "background.png"
+window:
+  size:
+    width: 512
+    height: 512
 contents:
   - x: 448
     y: 344
