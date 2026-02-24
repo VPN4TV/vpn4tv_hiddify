@@ -15,6 +15,7 @@ import 'package:hiddify/core/model/region.dart';
 import 'package:hiddify/core/preferences/general_preferences.dart';
 import 'package:hiddify/features/common/general_pref_tiles.dart';
 import 'package:hiddify/features/settings/data/config_option_repository.dart';
+import 'package:hiddify/features/settings/widget/preference_tile.dart';
 import 'package:hiddify/gen/assets.gen.dart';
 import 'package:hiddify/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -94,7 +95,18 @@ class IntroPage extends HookConsumerWidget with PresLogger {
                   ),
                   const Gap(24),
                   const LocalePrefTile(),
-                  const RegionPrefTile(),
+                  ChoicePreferenceWidget(
+                    selected: ref.watch(ConfigOptions.region),
+                    preferences: ref.watch(ConfigOptions.region.notifier),
+                    choices: Region.values,
+                    title: t.pages.settings.routing.region,
+                    showFlag: true,
+                    icon: Icons.place_rounded,
+                    presentChoice: (value) => value.present(t),
+                    onChanged: (val) async {
+                      await ref.read(ConfigOptions.directDnsAddress.notifier).reset();
+                    },
+                  ),
                   const EnableAnalyticsPrefTile(),
                   const Gap(24),
                   Focus(
