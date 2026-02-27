@@ -159,11 +159,11 @@ A maneira mais fácil de nos apoiar é clicar na estrela (⭐) no topo desta pá
 
 <div align=center>
     
-<img alt="Star History Chart" width=50% src="https://api.star-history.com/svg?repos=Hiddify/hiddify-next&type=Date)](https://star-history.com/#Hiddify/hiddify-next&Date" />
+<img alt="Star History Chart" width=50% src="https://api.star-history.com/svg?repos=Hiddify/hiddify-next&type=Date)](https://star-history.com/#Hiddify/hiddify-app&Date" />
 
 </div>
 
-Também precisamos de apoio financeiro para nossos serviços. Todas as nossas atividades são realizadas voluntariamente e o apoio financeiro será utilizado no desenvolvimento do projeto. Você pode ver nossos links de suporte [aqui](https://github.com/hiddify/hiddify-server/wiki/support).
+Também precisamos de apoio financeiro para nossos serviços. Todas as nossas atividades são realizadas voluntariamente e o apoio financeiro será utilizado no desenvolvimento do projeto. Você pode ver nossos links de suporte [aqui](https://hiddify.com/donation-and-support/).
 
 ## 👩‍🏫 Colaboração e Informações de Contato
 
