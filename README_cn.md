@@ -158,7 +158,7 @@
 
 </div>
 
-我们的服务也需要经济支持。我们所有的活动都是志愿性质的，经济支持将被用于项目的发展。您可以在 [这里](https://github.com/hiddify/hiddify-server/wiki/support) 查看我们的支持地址。
+我们的服务也需要经济支持。我们所有的活动都是志愿性质的，经济支持将被用于项目的发展。您可以在 [这里](https://hiddify.com/donation-and-support/) 查看我们的支持地址。
 
 ## 👩‍🏫 合作及联系信息
 
