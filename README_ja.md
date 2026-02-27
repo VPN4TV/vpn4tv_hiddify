@@ -161,11 +161,11 @@ Vless、Vmess、Reality、TUIC、Hysteria、Wireguard、SSH など。
 
 <div align=center>
 
-<img alt="Star History Chart" width=50% src="https://api.star-history.com/svg?repos=Hiddify/hiddify-next&type=Date)](https://star-history.com/#Hiddify/hiddify-next&Date" />
+<img alt="Star History Chart" width=50% src="https://api.star-history.com/svg?repos=Hiddify/hiddify-next&type=Date)](https://star-history.com/#Hiddify/hiddify-app&Date" />
 
 </div>
 
-また、私たちのサービスには財政的な支援も必要です。私たちの活動はすべて自発的に行われており、経済的支援はプロジェクトの発展に費やされます。私たちのサポートアドレスは[こちら](https://github.com/hiddify/hiddify-server/wiki/support)からご覧いただけます。
+また、私たちのサービスには財政的な支援も必要です。私たちの活動はすべて自発的に行われており、経済的支援はプロジェクトの発展に費やされます。私たちのサポートアドレスは[こちら](https://hiddify.com/donation-and-support/)からご覧いただけます。
 
 ## 👩‍🏫 コラボレーションおよび連絡先
 
