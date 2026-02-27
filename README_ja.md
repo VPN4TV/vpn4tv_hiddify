@@ -135,12 +135,7 @@ Vless、Vmess、Reality、TUIC、Hysteria、Wireguard、SSH など。
 
 ## 🌎 翻訳
 
-<div align=center>
-
-[![inlang status badge](https://inlang.com/badge?url=github.com/hiddify/hiddify-next)](https://inlang.com/editor/github.com/hiddify/hiddify-next?ref=badge)
-</div>
-
-インストールとチュートリアル `/assets/translations` にある JSON ファイルを手動で編集するか、[Inlang オンラインエディタ](https://inlang.com/editor/github.com/hiddify/hiddify-next)を使って、既存の言語を改良したり、新しい言語を追加したりすることができます。
+インストールとチュートリアル `/assets/translations` にある JSON ファイルを手動で編集するか、[Inlang オンラインエディタ](https://fink.inlang.com/editor/github.com/hiddify/hiddify-app)を使って、既存の言語を改良したり、新しい言語を追加したりすることができます。
 
 ## ✏️ 謝辞
 
