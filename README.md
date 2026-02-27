@@ -162,7 +162,7 @@ The easiest way to support us is to click on the star (⭐) at the top of this p
   </picture>
 </a>
 
-We also need financial support for our services. All of our activities are done voluntarily and financial support will be spent on the development of the project. You can view our support addresses [here](https://github.com/hiddify/hiddify-server/wiki/support).
+We also need financial support for our services. All of our activities are done voluntarily and financial support will be spent on the development of the project. You can view our support addresses [here](https://hiddify.com/donation-and-support/).
 
 ## 👩‍🏫 Collaboration and Contact Information
 
