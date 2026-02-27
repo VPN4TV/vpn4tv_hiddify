@@ -119,12 +119,7 @@
 
 ## 🌎 Переводы
 
-<div align=center>
-    
-[![inlang панель статуса](https://inlang.com/badge?url=github.com/hiddify/hiddify-next)](https://inlang.com/editor/github.com/hiddify/hiddify-next?ref=badge)
-</div>
-
-Улучшайте существующие языки или добавляйте новые, вручную редактируя JSON-файлы, расположенные в `/assets/translations`, или используя [Онлайн редактор Inlang](https://inlang.com/editor/github.com/hiddify/hiddify-next)
+Улучшайте существующие языки или добавляйте новые, вручную редактируя JSON-файлы, расположенные в `/assets/translations`, или используя [Онлайн редактор Inlang](https://fink.inlang.com/editor/github.com/hiddify/hiddify-app)
 
 
 ## ✏️ Благодарности
