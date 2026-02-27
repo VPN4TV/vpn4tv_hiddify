@@ -132,12 +132,9 @@ Vless, Vmess, Reality, TUIC, Hysteria, Wireguard, SSH, etc.
 
 
 ## 🌎 ترجمه‌ها
-<div align=center>
-    
-![Improve Translations](https://github.com/hiddify/hiddify-app/assets/125398461/c6f1f746-db8e-477d-ae05-b8305af838aa)
-</div>
 
-با ویرایش دستی فایل‌های JSON در assets/translations/ یا با استفاده از [ویرایشگر آنلاین Inlang](https://inlang.com/editor/github.com/hiddify/hiddify-next)، زبان‌های موجود را بهبود بدهید و یا زبان‌های جدید اضافه کنید.
+
+با ویرایش دستی فایل‌های JSON در assets/translations/ یا با استفاده از [![Translate with Inlang](https://img.shields.io/badge/%20-%20-3ECF8E?logo=i18next&logoColor=white)](https://fink.inlang.com/github.com/hiddify/hiddify-app) [ویرایشگر آنلاین Inlang](https://fink.inlang.com/editor/github.com/hiddify/hiddify-app)، زبان‌های موجود را بهبود بدهید و یا زبان‌های جدید اضافه کنید.
 
 ## ✏️ سپاسگزاری‌ها
 مایلیم از دست‌اندرکاران پروژه‌های زیر صمیمانه قدردانی کنیم که پایه قوی و ویژگی‌های نوآورانه آنها موفقیت و عملکرد این پروژه را به میزان قابل توجهی افزایش داده است.
