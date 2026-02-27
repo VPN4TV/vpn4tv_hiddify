@@ -127,13 +127,8 @@
  
 
 ## 🌎 翻译
-<div align=center>
-    
-[![inlang status badge](https://inlang.com/badge?url=github.com/hiddify/hiddify-next)](https://inlang.com/editor/github.com/hiddify/hiddify-next?ref=badge)
 
-</div>
-
-您可以通过手动编辑位于 `/assets/translations` 中的 JSON 文件，或使用 [Inlang 在线编辑器](https://inlang.com/editor/github.com/hiddify/hiddify-next)来改进现有语言或添加新语言。
+您可以通过手动编辑位于 `/assets/translations` 中的 JSON 文件，或使用 [Inlang 在线编辑器](https://fink.inlang.com/editor/github.com/hiddify/hiddify-app)来改进现有语言或添加新语言。
 
 ## ✏️ 致谢
 我们谨向以下项目的贡献者表示诚挚的谢意，这些项目打下的坚实基础和开发的创新功能，显着增强了本项目的功能，为本项目的开发带来了成功。
