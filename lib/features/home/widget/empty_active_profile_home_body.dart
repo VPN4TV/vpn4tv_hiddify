@@ -7,14 +7,12 @@ class EmptyActiveProfileHomeBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final t = ref.watch(translationsProvider);
+    final t = ref.watch(translationsProvider).requireValue;
 
     return SliverFillRemaining(
       hasScrollBody: false,
       child: Center(
-        child: Text(
-          t.home.noActiveProfile
-        ),
+        child: Text(t.pages.profiles.add),
       ),
     );
   }

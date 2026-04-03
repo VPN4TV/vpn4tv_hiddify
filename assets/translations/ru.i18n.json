@@ -92,7 +92,19 @@
   "intro": {
     "banner": "Все, что вам нужно для интернета без ограничений",
     "termsAndPolicyCaution(rich)": "Продолжая, вы соглашаетесь с ${tap(@:pages.about.termsAndConditions)}",
-    "info(rich)": "Сделано с ❤️ Hiddify - ${tap_source(Открытый исходный код)} (${tap_license(Лицензия)})"
+    "info(rich)": "Сделано с ❤️ Hiddify - ${tap_source(Открытый исходный код)} (${tap_license(Лицензия)})",
+    "waitingForQrScan": "Ожидание сканирования QR...",
+    "waitingForCodeInput": "Ожидание ввода кода...",
+    "vpnSetupComplete": "VPN настроен!",
+    "userInfoReceived": "Данные пользователя получены",
+    "connectionError": "Ошибка подключения",
+    "scanQrCodePrompt": "Отсканируйте QR-код телефоном",
+    "or": "ИЛИ",
+    "enter10DigitCode": "Введите этот код",
+    "continueWithBot": "Продолжить через Telegram бот",
+    "start": "Начать",
+    "addProfileLater": "Добавить профиль позже",
+    "userInfo": "Пользователь: {firstName} {lastName}"
   },
   "pages": {
     "home": {

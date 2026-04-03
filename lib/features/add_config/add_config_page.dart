@@ -28,7 +28,7 @@ class AddConfigPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final t = ref.watch(translationsProvider);
+    final t = ref.watch(translationsProvider).requireValue;
     final vpnConfigs = useState<List<dynamic>>([]);
     final userInfo = useState<String?>(null);
     final connectionManagerUuid = useState<VpnConnectionManager?>(null);
@@ -60,9 +60,9 @@ class AddConfigPage extends HookConsumerWidget {
     Future<void> processConfigs(List<dynamic> configs) async {
       for (final config in configs) {
         if (config is Map<String, dynamic> && config['type'] == 'subscription') {
-          await ref.read(addProfileProvider.notifier).add(config['url'] as String);
+          await ref.read(addProfileNotifierProvider.notifier).addClipboard(config['url'] as String);
         } else if (config is String) {
-          await ref.read(addProfileProvider.notifier).add(config);
+          await ref.read(addProfileNotifierProvider.notifier).addClipboard(config);
         } else {
           print('Неподдерживаемый формат конфигурации: $config');
         }
@@ -77,10 +77,7 @@ class AddConfigPage extends HookConsumerWidget {
         uuid: _uuid,
         onMessage: (dynamic message) async {
           if (message['type'] == 'user_info') {
-            userInfo.value = t.intro.userInfo(
-              firstName: message['data']['first_name'],
-              lastName: message['data']['last_name'],
-            );
+            userInfo.value = '${message['data']['first_name']} ${message['data']['last_name']}';
             updateCombinedStatus();
           } else if (message['type'] == 'vpn_config_processed') {
             final configs = message['config'] as List<dynamic>;
@@ -107,10 +104,7 @@ class AddConfigPage extends HookConsumerWidget {
         uuid: code10Digit.value,
         onMessage: (dynamic message) async {
           if (message['type'] == 'user_info') {
-            userInfo.value = t.intro.userInfo(
-              firstName: message['data']['first_name'],
-              lastName: message['data']['last_name'],
-            );
+            userInfo.value = '${message['data']['first_name']} ${message['data']['last_name']}';
             updateCombinedStatus();
           } else if (message['type'] == 'vpn_config_processed') {
             final configs = message['config'] as List<dynamic>;
@@ -136,7 +130,7 @@ class AddConfigPage extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.profile.add.buttonText),
+        title: Text(t.pages.profiles.add),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -172,7 +166,7 @@ class AddConfigPage extends HookConsumerWidget {
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () => Navigator.of(context).pop(),
-                    child: Text(t.general.ok),
+                    child: Text(t.common.ok),
                   ),
                 ],
               ],

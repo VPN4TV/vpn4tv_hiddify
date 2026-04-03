@@ -1,11 +1,10 @@
 import 'package:dartx/dartx.dart';
 import 'package:flutter/material.dart';
+import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:gap/gap.dart';
 import 'package:hiddify/core/app_info/app_info_provider.dart';
 import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/router/router.dart';
 import 'package:hiddify/core/router/bottom_sheets/bottom_sheets_notifier.dart';
-import 'package:hiddify/features/common/nested_app_bar.dart';
 import 'package:hiddify/features/home/widget/connection_button.dart';
 import 'package:hiddify/features/home/widget/empty_active_profile_home_body.dart';
 import 'package:hiddify/features/home/widget/empty_profiles_home_body.dart';
@@ -13,7 +12,7 @@ import 'package:hiddify/features/profile/notifier/active_profile_notifier.dart';
 import 'package:hiddify/features/profile/widget/profile_tile.dart';
 import 'package:hiddify/features/proxy/active/active_proxy_card.dart';
 import 'package:hiddify/features/proxy/active/active_proxy_delay_indicator.dart';
-import 'package:hiddify/features/proxy/active/active_proxy_footer.dart';
+import 'package:hiddify/features/add_config/add_config_page.dart';
 import 'package:hiddify/providers/device_info_providers.dart';
 import 'package:hiddify/gen/assets.gen.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -51,7 +50,7 @@ class _HomePageTv extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final t = ref.watch(translationsProvider);
+    final t = ref.watch(translationsProvider).requireValue;
     final hasAnyProfile = ref.watch(hasAnyProfileProvider);
     final activeProfile = ref.watch(activeProfileProvider);
 
@@ -60,11 +59,11 @@ class _HomePageTv extends HookConsumerWidget {
         autofocus: true,
         child: CustomScrollView(
           slivers: [
-            NestedAppBar(
+            SliverAppBar(
               title: Text.rich(
                 TextSpan(
                   children: [
-                    TextSpan(text: t.general.appTitle),
+                    TextSpan(text: t.common.appTitle),
                     const TextSpan(text: " "),
                     const WidgetSpan(
                       child: AppVersionLabel(),
@@ -73,7 +72,7 @@ class _HomePageTv extends HookConsumerWidget {
                   ],
                 ),
               ),
-              actions: [],
+              floating: true,
             ),
             activeProfile.when(
               data: (profile) {
@@ -102,7 +101,7 @@ class _HomePageTv extends HookConsumerWidget {
                                   const Gap(16),
                                   ElevatedButton(
                                     onPressed: () => _showTvMenu(context, ref),
-                                    child: Text(ref.read(translationsProvider).general.menu),
+                                    child: const Text("Menu"),
                                   ),
                                 ],
                               ),
@@ -145,7 +144,7 @@ class _HomePageTv extends HookConsumerWidget {
   }
 
   void _showTvMenu(BuildContext context, WidgetRef ref) {
-    final t = ref.read(translationsProvider);
+    final t = ref.read(translationsProvider).requireValue;
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -153,50 +152,17 @@ class _HomePageTv extends HookConsumerWidget {
           children: <Widget>[
             ListTile(
               leading: const Icon(Icons.add),
-              title: Text(t.home.addProfileViaTelegram),
+              title: Text(t.intro.continueWithBot),
               onTap: () {
                 Navigator.pop(context);
-                const AddConfigRoute().push(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.list),
-              title: Text(t.home.viewAllProfiles),
-              onTap: () {
-                Navigator.pop(context);
-                const ProfilesOverviewRoute().push(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.apps),
-              title: Text(t.home.perAppProxy),
-              onTap: () {
-                Navigator.pop(context);
-                const PerAppProxyRoute().push(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings_applications),
-              title: Text(t.configOptions.overview),
-              onTap: () {
-                Navigator.pop(context);
-                const ConfigOptionsRoute().push(context);
+                Navigator.push(context, MaterialPageRoute(builder: (_) => AddConfigPage()));
               },
             ),
             ListTile(
               leading: const Icon(Icons.settings),
-              title: Text(t.home.settings),
+              title: Text(t.pages.about.title),
               onTap: () {
                 Navigator.pop(context);
-                const SettingsRoute().push(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.info),
-              title: Text(t.about.pageTitle),
-              onTap: () {
-                Navigator.pop(context);
-                const AboutRoute().push(context);
               },
             ),
           ],
@@ -322,11 +288,11 @@ class AddProfileViaTelegramButton extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final t = ref.watch(translationsProvider);
+    final t = ref.watch(translationsProvider).requireValue;
     return ElevatedButton.icon(
-      onPressed: () => const AddConfigRoute().push(context),
+      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => AddConfigPage())),
       icon: const Icon(FluentIcons.add_24_regular),
-      label: Text(t.home.addProfileViaTelegram),
+      label: Text(t.intro.continueWithBot),
     );
   }
 }

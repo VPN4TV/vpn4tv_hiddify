@@ -41,6 +41,6 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   Sqlite3FlutterLibsPlugin.register(with: registry.registrar(forPlugin: "Sqlite3FlutterLibsPlugin"))
   TrayManagerPlugin.register(with: registry.registrar(forPlugin: "TrayManagerPlugin"))
   UrlLauncherPlugin.register(with: registry.registrar(forPlugin: "UrlLauncherPlugin"))
-  FLTWebViewFlutterPlugin.register(with: registry.registrar(forPlugin: "FLTWebViewFlutterPlugin"))
+  WebViewFlutterPlugin.register(with: registry.registrar(forPlugin: "WebViewFlutterPlugin"))
   WindowManagerPlugin.register(with: registry.registrar(forPlugin: "WindowManagerPlugin"))
 }

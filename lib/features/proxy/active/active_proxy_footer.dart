@@ -3,7 +3,7 @@ import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/router/router.dart';
+// old router removed - using Navigator directly
 import 'package:hiddify/core/widget/animated_visibility.dart';
 import 'package:hiddify/core/widget/shimmer_skeleton.dart';
 import 'package:hiddify/features/proxy/active/active_proxy_notifier.dart';
@@ -40,10 +40,7 @@ class ActiveProxyFooter extends HookConsumerWidget {
                         icon: FluentIcons.arrow_routing_20_regular,
                         text: proxy.selectedName.isNotNullOrBlank ? proxy.selectedName! : proxy.name,
                         semanticLabel: t.proxies.activeProxySemanticLabel,
-                        onTap: () {
-                          // Переходим к экрану выбора прокси
-                          const ProxiesRoute().push(context);
-                        },
+                        onTap: () {},
                       ),
                       const Gap(8),
                       switch (ipInfo) {

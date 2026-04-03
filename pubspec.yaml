@@ -83,7 +83,6 @@ dependencies:
   dart_mappable: ^4.2.1
   fluentui_system_icons: ^1.1.229
   json_path: ^0.7.1
-  flutter_easy_permission: ^1.1.2
   in_app_review: ^2.0.10
   circle_flags:
     git: https://github.com/hiddify-com/flutter_circle_flags.git
@@ -98,7 +97,7 @@ dependencies:
   dynamic_color: ^1.7.0
   flutter_typeahead: ^5.0.1
   web_socket_channel: ^2.4.0
-  device_info_plus: ^9.0.2
+  device_info_plus: ^11.4.0
   webview_flutter: ^4.9.0
   simple_icons: ^10.1.3
   animated_notch_bottom_bar: ^1.0.0
