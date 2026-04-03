@@ -17,6 +17,7 @@ class SingboxConfigOption with _$SingboxConfigOption {
   @JsonSerializable(fieldRename: FieldRename.kebab)
   const factory SingboxConfigOption({
     required String region,
+    required BalancerStrategy balancerStrategy,
     required bool blockAds,
     required bool useXrayCoreWhenPossible,
     required bool executeConfigAsIs,
@@ -29,7 +30,8 @@ class SingboxConfigOption with _$SingboxConfigOption {
     required DomainStrategy directDnsDomainStrategy,
     required int mixedPort,
     required int tproxyPort,
-    required int localDnsPort,
+    required int directPort,
+    required int redirectPort,
     required TunImplementation tunImplementation,
     required int mtu,
     required bool strictRoute,
@@ -38,17 +40,15 @@ class SingboxConfigOption with _$SingboxConfigOption {
     required bool enableClashApi,
     required int clashApiPort,
     required bool enableTun,
-    required bool enableTunService,
+    // required bool enableTunService,
     required bool setSystemProxy,
     required bool bypassLan,
     required bool allowConnectionFromLan,
     required bool enableFakeDns,
-    required bool enableDnsRouting,
+    // required bool enableDnsRouting,
     required bool independentDnsCache,
-    // required String geoipPath,
-    // required String geositePath,
     required List<SingboxRule> rules,
-    required SingboxMuxOption mux,
+    // required SingboxMuxOption mux,
     required SingboxTlsTricks tlsTricks,
     required SingboxWarpOption warp,
     required SingboxWarpOption warp2,
@@ -83,18 +83,18 @@ class SingboxWarpOption with _$SingboxWarpOption {
   factory SingboxWarpOption.fromJson(Map<String, dynamic> json) => _$SingboxWarpOptionFromJson(json);
 }
 
-@freezed
-class SingboxMuxOption with _$SingboxMuxOption {
-  @JsonSerializable(fieldRename: FieldRename.kebab)
-  const factory SingboxMuxOption({
-    required bool enable,
-    required bool padding,
-    required int maxStreams,
-    required MuxProtocol protocol,
-  }) = _SingboxMuxOption;
+// @freezed
+// class SingboxMuxOption with _$SingboxMuxOption {
+//   @JsonSerializable(fieldRename: FieldRename.kebab)
+//   const factory SingboxMuxOption({
+//     required bool enable,
+//     required bool padding,
+//     required int maxStreams,
+//     required MuxProtocol protocol,
+//   }) = _SingboxMuxOption;
 
-  factory SingboxMuxOption.fromJson(Map<String, dynamic> json) => _$SingboxMuxOptionFromJson(json);
-}
+//   factory SingboxMuxOption.fromJson(Map<String, dynamic> json) => _$SingboxMuxOptionFromJson(json);
+// }
 
 @freezed
 class SingboxTlsTricks with _$SingboxTlsTricks {

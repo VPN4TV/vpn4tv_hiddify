@@ -1,5 +1,8 @@
 import 'dart:io';
 
+import 'package:hiddify/core/model/environment.dart';
+import 'package:hiddify/utils/platform_utils.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:loggy/loggy.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -9,12 +12,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 part 'preferences_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-Future<SharedPreferences> sharedPreferences(SharedPreferencesRef ref) async {
+Future<SharedPreferences> sharedPreferences(Ref ref) async {
   final logger = Loggy("preferences");
   SharedPreferences? sharedPreferences;
 
   logger.debug("initializing preferences");
   try {
+    if (PlatformUtils.isWindows && Environment.isPortable) SharedPreferences.setPrefix('portable.');
     sharedPreferences = await SharedPreferences.getInstance();
   } catch (e) {
     logger.error("error initializing preferences", e);

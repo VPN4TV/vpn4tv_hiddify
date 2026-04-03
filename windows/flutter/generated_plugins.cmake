@@ -3,9 +3,9 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  app_links
   dynamic_color
-  protocol_handler_windows
-  screen_retriever
+  screen_retriever_windows
   sentry_flutter
   share_plus
   sqlite3_flutter_libs

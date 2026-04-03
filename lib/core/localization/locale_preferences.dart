@@ -9,8 +9,7 @@ part 'locale_preferences.g.dart';
 class LocalePreferences extends _$LocalePreferences with AppLogger {
   @override
   AppLocale build() {
-    final persisted =
-        ref.watch(sharedPreferencesProvider).requireValue.getString("locale");
+    final persisted = ref.watch(sharedPreferencesProvider).requireValue.getString("locale");
     if (persisted == null) return AppLocaleUtils.findDeviceLocale();
     try {
       return AppLocale.values.byName(persisted);
@@ -22,9 +21,6 @@ class LocalePreferences extends _$LocalePreferences with AppLogger {
 
   Future<void> changeLocale(AppLocale value) async {
     state = value;
-    await ref
-        .read(sharedPreferencesProvider)
-        .requireValue
-        .setString("locale", value.name);
+    await ref.read(sharedPreferencesProvider).requireValue.setString("locale", value.name);
   }
 }
