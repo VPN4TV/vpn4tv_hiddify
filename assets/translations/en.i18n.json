@@ -88,7 +88,19 @@
   "intro": {
     "banner": "All you need for an unrestricted internet",
     "termsAndPolicyCaution(rich)": "By continuing you agree to ${tap(@:pages.about.termsAndConditions)}",
-    "info(rich)": "Made with ❤️ by Hiddify - ${tap_source(Open Source)} (${tap_license(License)})"
+    "info(rich)": "Made with ❤️ by Hiddify - ${tap_source(Open Source)} (${tap_license(License)})",
+    "waitingForQrScan": "Waiting for QR scan...",
+    "waitingForCodeInput": "Waiting for code input...",
+    "vpnSetupComplete": "VPN setup complete!",
+    "userInfoReceived": "User info received",
+    "connectionError": "Connection error",
+    "scanQrCodePrompt": "Scan this QR code with your phone",
+    "or": "OR",
+    "enter10DigitCode": "Enter this code",
+    "continueWithBot": "Continue with Telegram bot",
+    "start": "Start",
+    "addProfileLater": "Add profile later",
+    "userInfo": "User: {firstName} {lastName}"
   },
   "pages": {
     "home": {

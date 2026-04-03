@@ -246,7 +246,7 @@ class RoutingConfigNotifier extends _$RoutingConfigNotifier {
             ],
           ],
         ),
-        GoRoute(name: 'intro', path: '/intro', builder: (_, _) => const IntroPage()),
+        GoRoute(name: 'intro', path: '/intro', builder: (_, _) => IntroPage()),
       ],
     );
   }

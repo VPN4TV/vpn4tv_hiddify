@@ -10,7 +10,7 @@ import 'package:hiddify/core/localization/translations.dart';
 import 'package:hiddify/core/model/constants.dart';
 import 'package:hiddify/core/model/region.dart';
 import 'package:hiddify/core/preferences/general_preferences.dart';
-import 'package:hiddify/features/config_option/data/config_option_repository.dart';
+import 'package:hiddify/features/settings/data/config_option_repository.dart';
 import 'package:hiddify/features/connection/vpn_connection_manager.dart';
 import 'package:hiddify/features/profile/notifier/profile_notifier.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -75,9 +75,9 @@ class IntroPage extends HookConsumerWidget {
     Future<void> processConfigs(List<dynamic> configs) async {
       for (final config in configs) {
         if (config is Map<String, dynamic> && config['type'] == 'subscription') {
-          await ref.read(addProfileProvider.notifier).add(config['url'] as String);
+          await ref.read(addProfileNotifierProvider.notifier).addClipboard(config['url'] as String);
         } else if (config is String) {
-          await ref.read(addProfileProvider.notifier).add(config);
+          await ref.read(addProfileNotifierProvider.notifier).addClipboard(config);
         } else {
           print('Unsupported config format: $config');
         }
@@ -100,10 +100,7 @@ class IntroPage extends HookConsumerWidget {
         uuid: _uuid,
         onMessage: (dynamic message) async {
           if (message['type'] == 'user_info') {
-            userInfo.value = t.intro.userInfo(
-              firstName: message['data']['first_name'],
-              lastName: message['data']['last_name'],
-            );
+            userInfo.value = '${message['data']['first_name']} ${message['data']['last_name']}';
             updateCombinedStatus();
           } else if (message['type'] == 'vpn_config_processed') {
             final configs = message['config'] as List<dynamic>;
@@ -130,10 +127,7 @@ class IntroPage extends HookConsumerWidget {
         uuid: code10Digit.value,
         onMessage: (dynamic message) async {
           if (message['type'] == 'user_info') {
-            userInfo.value = t.intro.userInfo(
-              firstName: message['data']['first_name'],
-              lastName: message['data']['last_name'],
-            );
+            userInfo.value = '${message['data']['first_name']} ${message['data']['last_name']}';
             updateCombinedStatus();
           } else if (message['type'] == 'vpn_config_processed') {
             final configs = message['config'] as List<dynamic>;
@@ -170,7 +164,7 @@ class IntroPage extends HookConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(t.general.appTitle),
+        title: Text(t.common.appTitle),
         actions: [
           PopupMenuButton<String>(
             onSelected: (String value) {
@@ -180,7 +174,7 @@ class IntroPage extends HookConsumerWidget {
                   MaterialPageRoute(
                     builder: (context) => WebViewPage(
                       url: Constants.termsAndConditionsUrl,
-                      title: t.general.termsAndConditions,
+                      title: t.pages.about.termsAndConditions,
                     ),
                   ),
                 );
@@ -190,7 +184,7 @@ class IntroPage extends HookConsumerWidget {
                   MaterialPageRoute(
                     builder: (context) => WebViewPage(
                       url: Constants.privacyPolicyUrl,
-                      title: t.general.privacyPolicy,
+                      title: t.pages.about.privacyPolicy,
                     ),
                   ),
                 );
@@ -199,11 +193,11 @@ class IntroPage extends HookConsumerWidget {
             itemBuilder: (BuildContext context) => [
               PopupMenuItem<String>(
                 value: 'terms',
-                child: Text(t.general.termsAndConditions),
+                child: Text(t.pages.about.termsAndConditions),
               ),
               PopupMenuItem<String>(
                 value: 'privacy',
-                child: Text(t.general.privacyPolicy),
+                child: Text(t.pages.about.privacyPolicy),
               ),
             ],
             icon: const Icon(Icons.more_vert),
