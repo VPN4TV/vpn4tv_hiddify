@@ -1,6 +1,6 @@
 {
   "common": {
-    "appTitle": "Hiddify",
+    "appTitle": "VPN4TV",
     "start": "Начать",
     "version": "Версия",
     "ok": "OK",
@@ -93,18 +93,19 @@
     "banner": "Все, что вам нужно для интернета без ограничений",
     "termsAndPolicyCaution(rich)": "Продолжая, вы соглашаетесь с ${tap(@:pages.about.termsAndConditions)}",
     "info(rich)": "Сделано с ❤️ Hiddify - ${tap_source(Открытый исходный код)} (${tap_license(Лицензия)})",
-    "waitingForQrScan": "Ожидание сканирования QR...",
-    "waitingForCodeInput": "Ожидание ввода кода...",
-    "vpnSetupComplete": "VPN настроен!",
-    "userInfoReceived": "Данные пользователя получены",
-    "connectionError": "Ошибка подключения",
-    "scanQrCodePrompt": "Отсканируйте QR-код телефоном",
+    "waitingForQrScan": "Ожидание сканирования QR-кода или ввода 10-значного кода...",
+    "waitingForCodeInput": "Ожидание сканирования QR-кода или ввода 10-значного кода...",
+    "vpnSetupComplete": "Настройка VPN завершена",
+    "userInfoReceived": "Получена информация о пользователе",
+    "connectionError": "Ошибка соединения",
+    "scanQrCodePrompt": "Сканируйте QR-код, чтобы добавить профиль",
     "or": "ИЛИ",
-    "enter10DigitCode": "Введите этот код",
-    "continueWithBot": "Продолжить через Telegram бот",
+    "enter10DigitCode": "Введите 10-значный код",
+    "continueWithBot": "Пожалуйста, введите 10-значный код в @VPN4TV_bot или на https://api.vpn4tv.com, либо отсканируйте QR-код для завершения настройки VPN.",
     "start": "Начать",
     "addProfileLater": "Добавить профиль позже",
-    "userInfo": "Пользователь: {firstName} {lastName}"
+    "userInfo": "Пользователь: {firstName} {lastName}",
+    "addProfileViaTelegram": "Добавить профиль через Telegram"
   },
   "pages": {
     "home": {

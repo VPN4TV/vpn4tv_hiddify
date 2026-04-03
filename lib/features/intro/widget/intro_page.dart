@@ -222,7 +222,7 @@ class IntroPage extends HookConsumerWidget {
                   const SizedBox(height: 20),
                   Center(
                     child: Text(
-                      '10-digit code: ${format10DigitCode(code10Digit.value)}',
+                      '${t.intro.enter10DigitCode}: ${format10DigitCode(code10Digit.value)}',
                       style: Theme.of(context).textTheme.bodyLarge,
                       textAlign: TextAlign.center,
                     ),
