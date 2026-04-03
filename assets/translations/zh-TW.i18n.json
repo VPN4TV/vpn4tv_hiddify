@@ -1,0 +1,643 @@
+{
+  "common": {
+    "appTitle": "Hiddify",
+    "start": "開始",
+    "version": "版本",
+    "ok": "確定",
+    "cancel": "取消",
+    "kContinue": "繼續",
+    "showMore": "顯示更多",
+    "showLess": "顯示較少",
+    "filter": "篩選",
+    "all": "全部",
+    "pause": "暫停",
+    "resume": "恢復",
+    "clear": "清除",
+    "close": "關閉",
+    "auto": "自動",
+    "manually": "手動",
+    "name": "名稱",
+    "url": "URL",
+    "add": "新增",
+    "clipboard": "剪貼簿",
+    "addToClipboard": "新增至剪貼簿",
+    "scanQr": "掃描 QR Code",
+    "free": "免費",
+    "warp": "WARP",
+    "fragment": "Fragment",
+    "help": "說明",
+    "save": "儲存",
+    "update": "更新",
+    "share": "分享",
+    "edit": "編輯",
+    "delete": "刪除",
+    "discard": "捨棄",
+    "import": "匯入",
+    "export": "匯出",
+    "later": "稍後",
+    "ignore": "忽略",
+    "quit": "退出",
+    "notSet": "未設定",
+    "hide": "隱藏",
+    "exit": "退出",
+    "reset": "重設",
+    "done": "完成",
+    "search": "搜尋",
+    "decline": "拒絕",
+    "agree": "同意",
+    "empty": "空",
+    "unknown": "未知",
+    "hidden": "隱藏",
+    "timeout": "超時",
+    "sort": "排序",
+    "dashboard": "儀表板",
+    "interval": {
+      "day": {
+        "zero": "",
+        "one": "$n 天",
+        "other": "$n 天"
+      },
+      "hour": {
+        "zero": "",
+        "one": "$n 小時",
+        "other": "$n 小時"
+      }
+    },
+    "msg": {
+      "permission": {
+        "denied": "權限被拒絕"
+      },
+      "export": {
+        "clipboard": {
+          "success": "已成功新增至剪貼簿",
+          "failure": "複製到剪貼簿失敗",
+          "contentTooLarge": "內容過大，請改用匯出檔案"
+        },
+        "file": {
+          "success": "JSON 檔案建立成功",
+          "failure": "建立檔案失敗"
+        }
+      },
+      "import": {
+        "confirm": "確認匯入",
+        "success": "匯入成功",
+        "failure": "匯入失敗"
+      }
+    }
+  },
+  "intro": {
+    "banner": "暢享無限制網路的所需一切",
+    "termsAndPolicyCaution(rich)": "繼續即表示您同意 ${tap(@:pages.about.termsAndConditions)}",
+    "info(rich)": "由 Hiddify 以 ❤️ 製作 - ${tap_source(開源)} (${tap_license(授權)})"
+  },
+  "pages": {
+    "home": {
+      "title": "首頁",
+      "quickSettings": "快速設定"
+    },
+    "proxies": {
+      "title": "代理",
+      "sort": "排序代理",
+      "testDelay": "測試延遲",
+      "empty": "無可用代理",
+      "activeProxy": "當前代理",
+      "unknownIp": "未知 IP",
+      "sortOptions": {
+        "unsorted": "預設",
+        "name": "按名稱",
+        "delay": "按延遲"
+      },
+      "ipInfo": {
+        "address": "IP 位址",
+        "country": "國家",
+        "organization": "組織"
+      },
+      "delay": {
+        "result": "延遲：${delay}毫秒",
+        "timeout": "延遲測試超時",
+        "testing": "延遲：測試中..."
+      }
+    },
+    "profiles": {
+      "title": "設定檔",
+      "add": "新增設定檔",
+      "update": "更新設定檔",
+      "viewAllProfiles": "檢視所有設定檔",
+      "activeProfileName": "目前設定檔：「${name}」",
+      "nonActiveProfileName": "選擇「${name}」作為目前設定檔",
+      "freeSubNotFound": "未找到免費訂閱",
+      "freeSubNotFoundForRegion": "未找到「${region}」地區的免費訂閱",
+      "failedToLoad": "載入失敗",
+      "updateSubscriptions": "更新訂閱",
+      "share": {
+        "urlToClipboard": "URL 到剪貼簿",
+        "showUrlQr": "顯示 URL QR Code",
+        "jsonToClipboard": "JSON 到剪貼簿"
+      },
+      "msg": {
+        "save": {
+          "success": "設定檔儲存成功"
+        },
+        "invalidUrl": "無效的 URL",
+        "add": {
+          "failure": "新增設定檔失敗"
+        },
+        "update": {
+          "success": "設定檔更新成功",
+          "successNamed": "「${name}」更新成功",
+          "failure": "更新設定檔失敗",
+          "failureNamed": "更新「${name}」失敗"
+        },
+        "delete": {
+          "success": "設定檔刪除成功"
+        }
+      }
+    },
+    "profileDetails": {
+      "title": "設定檔",
+      "lastUpdate": "最後更新",
+      "form": {
+        "nameHint": "設定檔名稱",
+        "emptyName": "名稱為必填項",
+        "invalidUrl": "無效的 URL",
+        "urlHint": "完整的設定 URL",
+        "disableAutoUpdate": "停用自動更新",
+        "autoUpdateInterval": "自動更新間隔",
+        "loading": "正在新增設定檔..."
+      }
+    },
+    "logs": {
+      "title": "日誌",
+      "shareCoreLogs": "分享核心日誌",
+      "shareAppLogs": "分享應用程式日誌"
+    },
+    "about": {
+      "title": "關於",
+      "notAvailableMsg": "已是最新版本",
+      "checkForUpdate": "檢查更新",
+      "openWorkingDir": "開啟工作目錄",
+      "sourceCode": "原始碼",
+      "telegramChannel": "Telegram 頻道",
+      "termsAndConditions": "條款與條件",
+      "privacyPolicy": "隱私權政策"
+    },
+    "settings": {
+      "title": "設定",
+      "resetTunnel": "重設 VPN 設定檔",
+      "options": {
+        "import": {
+          "clipboard": "從剪貼簿匯入選項",
+          "file": "從檔案匯入選項"
+        },
+        "export": {
+          "anonymousToClipboard": "複製匿名選項到剪貼簿",
+          "anonymousToFile": "匯出匿名選項到檔案",
+          "allToClipboard": "複製所有選項到剪貼簿",
+          "allToFile": "匯出所有選項到檔案"
+        },
+        "reset": "重設選項"
+      },
+      "general": {
+        "title": "一般",
+        "locale": "語言",
+        "themeMode": "主題模式",
+        "themeModes": {
+          "system": "跟隨系統",
+          "dark": "深色模式",
+          "light": "淺色模式",
+          "black": "純黑模式"
+        },
+        "enableAnalytics": "啟用分析",
+        "enableAnalyticsMsg": "允許收集分析資料和傳送崩潰報告以改進應用程式",
+        "autoIpCheck": "自動檢查連線 IP",
+        "dynamicNotification": "在通知中顯示速度",
+        "hapticFeedback": "觸覺回饋",
+        "actionAtClosing": "關閉時操作",
+        "autoStart": "開機自啟",
+        "silentStart": "靜默啟動",
+        "ignoreBatteryOptimizations": "忽略電池最佳化",
+        "ignoreBatteryOptimizationsMsg": "移除限制以獲得最佳 VPN 效能",
+        "memoryLimit": "記憶體限制",
+        "memoryLimitMsg": "如果您遇到記憶體不足錯誤或應用程式頻繁崩潰，請啟用此選項",
+        "debugMode": "偵錯模式",
+        "debugModeMsg": "重新啟動應用程式以套用此變更",
+        "logLevel": "日誌級別",
+        "connectionTestUrl": "連線測試 URL",
+        "urlTestInterval": "URL 測試間隔",
+        "clashApiPort": "Clash API 連接埠",
+        "useXrayCoreWhenPossible": "盡可能使用 xray-core",
+        "useXrayCoreWhenPossibleMsg": "解析訂閱連結時使用 xray-core。您需要重新匯入訂閱連結才能啟用此選項"
+      },
+      "routing": {
+        "title": "路由",
+        "perAppProxy": {
+          "title": "依應用程式代理",
+          "hideSysApps": "隱藏系統應用程式",
+          "options": {
+            "import": {
+              "clipboard": "從剪貼簿匯入選擇",
+              "file": "從檔案匯入選擇",
+              "msg": "匯入將取代您目前的選擇。確定要繼續嗎？"
+            },
+            "export": {
+              "clipboard": "複製選擇到剪貼簿",
+              "file": "匯出選擇到檔案"
+            },
+            "shareToAll": "分享給所有人",
+            "clearAllSelections": "清除所有選擇"
+          },
+          "modes": {
+            "all": "全部",
+            "proxy": "代理",
+            "bypass": "繞過",
+            "allMsg": "代理所有應用程式",
+            "proxyMsg": "僅代理選定應用程式",
+            "bypassMsg": "不代理選定應用程式"
+          },
+          "autoSelection": {
+            "title": "自動選擇",
+            "performNow": "立即執行",
+            "resetToDefault": "重設為預設",
+            "autoUpdateInterval": "自動更新間隔",
+            "toast": {
+              "success": "自動選擇應用程式成功完成",
+              "failure": "自動選擇失敗",
+              "regionNotFound": "未找到「${region}」地區的自動選擇",
+              "alreadyInAuto": "您的選擇已在自動清單中"
+            },
+            "dialog": {
+              "title": "自動選擇應用程式",
+              "msg": "由於地區更改為「${region}」，依應用程式代理的自動選擇功能已被停用"
+            }
+          }
+        },
+        "region": "地區",
+        "regions": {
+          "ir": "伊朗 (ir)",
+          "cn": "中國 (cn)",
+          "ru": "俄羅斯 (ru)",
+          "af": "阿富汗 (af)",
+          "id": "印尼 (id)",
+          "tr": "土耳其 (tr)",
+          "br": "巴西 (br)",
+          "other": "其他"
+        },
+        "balancerStrategy": {
+          "title": "Balancer 策略",
+          "roundRobin": "Round robin",
+          "consistentHash": "Consistent hash",
+          "stickySession": "Sticky session"
+        },
+        "blockAds": "攔截廣告",
+        "bypassLan": "繞過區域網路",
+        "resolveDestination": "解析目的地",
+        "ipv6Route": "IPv6 路由",
+        "ipv6Modes": {
+          "disable": "停用",
+          "enable": "啟用",
+          "prefer": "首選",
+          "only": "僅"
+        },
+        "routeRule": {
+          "title": "路由規則",
+          "options": {
+            "import": {
+              "clipboard": "從剪貼簿匯入規則",
+              "file": "從檔案匯入規則"
+            },
+            "export": {
+              "clipboard": "複製規則到剪貼簿",
+              "file": "儲存規則到檔案"
+            },
+            "reset": "重設規則"
+          },
+          "deleteRule": "刪除規則",
+          "createRule": "建立新規則",
+          "rule": {
+            "title": "規則",
+            "ruleChanged": "規則已變更",
+            "ruleChangedMsg": "您想儲存您的編輯嗎？",
+            "onlyTunMode": "僅在 TUN 模式下可用",
+            "notAvailabeInThisPlatform": "在此平台上不可用",
+            "canNotBeEmpty": "不能為空",
+            "validUrlEx": "https://example.com",
+            "validUrl": "有效的「URL」，例如\n@:pages.settings.routing.routeRule.rule.validUrlEx",
+            "validProcessNameEx": "Chrome.exe 或 google chrome 或 chrome",
+            "validProcessName": "有效的「處理程序名稱」，例如\n@:pages.settings.routing.routeRule.rule.validProcessNameEx",
+            "validProcessPathEx": "C:\\Pro...\\chrome.exe\n/App.../Google Chrome\n/usr/lib.../chrome",
+            "validProcessPath": "有效的「處理程序路徑」，例如\n@:pages.settings.routing.routeRule.rule.validProcessPathEx",
+            "validPortRangeEx": "80 或 1-65000",
+            "validPortRange": "有效的「連接埠」或「連接埠範圍」，例如\n@:pages.settings.routing.routeRule.rule.validPortRangeEx",
+            "validIpCidrEx": "8.8.8.8 或 10.0.0.0/24",
+            "validIpCidr": "有效的 IP CIDR，例如\n@:pages.settings.routing.routeRule.rule.validIpCidrEx",
+            "validDomainEx": "Google.com 或 dl.google.com",
+            "validDomain": "有效的「網域」，例如\n@:pages.settings.routing.routeRule.rule.validDomainEx",
+            "validDomainSuffixEx": ".com 或 .tw",
+            "validDomainSuffix": "有效的「網域後綴」，例如\n@:pages.settings.routing.routeRule.rule.validDomainSuffixEx",
+            "tileTitle(map)": {
+              "name": "名稱",
+              "outbound": "符合時出站",
+              "rule_set": "規則集 URL",
+              "package_name": "套件名稱",
+              "process_name": "處理程序名稱",
+              "process_path": "處理程序路徑",
+              "network": "網路",
+              "port_range": "目標連接埠",
+              "source_port_range": "來源連接埠",
+              "protocol": "協定",
+              "ip_cidr": "目標 IP CIDR",
+              "source_ip_cidr": "來源 IP CIDR",
+              "domain": "網域",
+              "domain_suffixe": "網域後綴",
+              "domain_keyword": "網域關鍵字",
+              "domain_regex": "網域正規表示式"
+            },
+            "outbound(map)": {
+              "proxy": "代理",
+              "direct": "直連",
+              "direct_with_fragment": "直連並分片",
+              "block": "攔截"
+            },
+            "network(map)": {
+              "all": "全部",
+              "tcp": "TCP",
+              "udp": "UDP"
+            },
+            "protocol(map)": {
+              "": "全部",
+              "tls": "TLS",
+              "http": "HTTP",
+              "quic": "QUIC",
+              "stun": "STUN",
+              "dns": "DNS",
+              "bittorrent": "BitTorrent"
+            }
+          },
+          "genericList": {
+            "addNew": "新增值",
+            "update": "更新值",
+            "clearList": "清除清單",
+            "clearListMsg": "所有項目已刪除"
+          },
+          "androidApps": {
+            "pageTitle": "Android 應用程式",
+            "showSystemApps": "顯示系統應用程式",
+            "hideSystemApps": "隱藏系統應用程式",
+            "clearSelection": "清除選擇",
+            "uninstalled": "已解除安裝"
+          }
+        }
+      },
+      "dns": {
+        "title": "DNS",
+        "remoteDns": "遠端 DNS",
+        "remoteDnsDomainStrategy": "遠端 DNS 網域策略",
+        "directDns": "出站伺服器解析器（直連）",
+        "directDnsDomainStrategy": "出站網域策略",
+        "enableDnsRouting": "啟用 DNS 路由",
+        "enableFakeDns": "啟用偽造 DNS",
+        "domainStrategy": {
+          "auto": "自動",
+          "preferIpv6": "偏好 IPv6",
+          "preferIpv4": "偏好 IPv4",
+          "ipv4Only": "僅 IPv4",
+          "ipv6Only": "僅 IPv6"
+        }
+      },
+      "inbound": {
+        "title": "入站",
+        "serviceMode": "服務模式",
+        "serviceModes": {
+          "proxy": "僅代理服務",
+          "systemProxy": "設定系統代理",
+          "tun": "VPN",
+          "tunService": "VPN 服務"
+        },
+        "shortServiceModes": {
+          "proxy": "代理",
+          "systemProxy": "系統代理",
+          "tun": "VPN",
+          "tunService": "VPN 服務"
+        },
+        "strictRoute": "嚴格路由",
+        "tunImplementation": "TUN 實現",
+        "tunImplementations": {
+          "mixed": "混合",
+          "system": "系統",
+          "gvisor": "gVisor"
+        },
+        "mixedPort": "混合連接埠",
+        "tproxyPort": "透明代理連接埠",
+        "directPort": "本地 Direct 連接埠",
+        "redirectPort": "重新導向連接埠",
+        "allowConnectionFromLan": "允許來自區域網路的連線"
+      },
+      "tlsTricks": {
+        "title": "TLS 技巧",
+        "enable": "啟用分片",
+        "packets": "分片封包",
+        "packetsTlsHello": "TLS Hello",
+        "packets1_1": "1-1",
+        "packets1_2": "1-2",
+        "packets1_3": "1-3",
+        "packets1_4": "1-4",
+        "packets1_5": "1-5",
+        "size": "分片大小",
+        "sleep": "分片延遲",
+        "mixedSniCase": {
+          "enable": "啟用混合大小寫 SNI"
+        },
+        "padding": {
+          "enable": "啟用填充",
+          "size": "填充大小"
+        }
+      },
+      "warp": {
+        "title": "WARP",
+        "enable": "啟用 WARP",
+        "generateConfig": "產生 WARP 設定",
+        "configGenerated": "WARP 設定已產生",
+        "missingConfig": "WARP 設定缺失",
+        "detourMode": "WARP 路由模式",
+        "detourModes": {
+          "proxyOverWarp": "透過 WARP 路由代理",
+          "warpOverProxy": "透過代理路由 WARP",
+          "proxyOverWarpExplain": "透過 WARP 解鎖代理",
+          "warpOverProxyExplain": "透過 WARP 增強安全性"
+        },
+        "licenseKey": "授權金鑰",
+        "cleanIp": "優選 IP",
+        "port": "連接埠",
+        "noise": {
+          "count": "噪音數量",
+          "mode": "噪音模式",
+          "size": "噪音大小",
+          "delay": "噪音延遲"
+        }
+      }
+    }
+  },
+  "components": {
+    "stats": {
+      "connection": "連線",
+      "traffic": "流量",
+      "trafficLive": "即時流量",
+      "trafficTotal": "總流量",
+      "uplink": "上傳",
+      "downlink": "下載",
+      "speed": "速度",
+      "totalTransferred": "總傳輸量"
+    },
+    "subscriptionInfo": {
+      "upload": "上傳",
+      "download": "下載",
+      "total": "總流量",
+      "expireDate": "到期日期",
+      "expired": "已到期",
+      "noTraffic": "流量已用盡",
+      "remainingTime": "剩餘時間",
+      "remainingDuration": "剩餘 ${duration} 天",
+      "remainingDurationNew": "${duration} 天",
+      "remainingTrafficSemanticLabel": "已使用 ${consumed} / ${total} 流量",
+      "remainingTraffic": "剩餘流量",
+      "remainingUsage": "剩餘",
+      "profileSite": "提供商",
+      "profileSupport": "支援"
+    }
+  },
+  "dialogs": {
+    "sortProfiles": {
+      "title": "排序方式",
+      "sort": {
+        "name": "按字母順序",
+        "lastUpdate": "最近更新"
+      }
+    },
+    "warpLicense": {
+      "title": "Cloudflare WARP 同意書",
+      "description(rich)": "Cloudflare WARP 是一個免費的 WireGuard VPN 提供商。啟用此選項即表示您同意 Cloudflare WARP 的 ${tos(服務條款)} 和 ${privacy(隱私權政策)}。"
+    },
+    "newVersion": {
+      "title": "有可用更新",
+      "msg": "@:common.appTitle 的新版本已發布。您想立即更新嗎？",
+      "currentVersion": "目前版本：",
+      "newVersion": "新版本：",
+      "updateNow": "立即更新"
+    },
+    "confirmation": {
+      "settings": {
+        "import": {
+          "msg": "這會使用提供的值覆蓋所有設定選項。您確定嗎？"
+        }
+      },
+      "profile": {
+        "delete": {
+          "title": "刪除設定檔",
+          "msg": "您確定要永久刪除此設定檔嗎？"
+        }
+      },
+      "perAppProxy": {
+        "shareOnGithub": {
+          "title": "改進自動選擇",
+          "msg": "透過分享您選擇的應用程式，可以幫助完善「自動選擇」清單"
+        },
+        "import": {
+          "msg": "這將取代您目前所有的依應用程式代理選擇。您確定要繼續嗎？"
+        }
+      },
+      "routeRule": {
+        "delete": {
+          "title": "刪除規則",
+          "msg": "您確定要刪除規則「$rulename」嗎？"
+        }
+      }
+    },
+    "experimentalNotice": {
+      "title": "正在使用實驗性功能",
+      "msg": "您已啟用了一些實驗性功能，這可能會影響連線品質並導致意外錯誤。您可以隨時在設定選項頁面變更或重設這些選項。",
+      "disable": "不再顯示"
+    },
+    "noActiveProfile": {
+      "title": "選擇一個設定檔",
+      "msg": "讓我們從新增一個包含您 VPN 連線詳細資訊的設定檔開始。\n\n還沒有 VPN 伺服器？別擔心，按照下面的教學，您可以快速免費地設定一個。",
+      "helpBtn": {
+        "label": "告訴我如何操作",
+        "url": "https://hiddify.com/manager/"
+      }
+    },
+    "unknownDomainsWarning": {
+      "title": "外部連結警告",
+      "youAreAboutToVisit": "您即將造訪：",
+      "thisWebsiteIsNotInOurTrustedList": "此網站不在我們的信任清單中。請謹慎操作。"
+    },
+    "proxyInfo": {
+      "fullTag": "完整標籤：",
+      "type": "類型：",
+      "testTime": "測試時間：",
+      "testDelay": "測試延遲：",
+      "isSelected": "已選擇：",
+      "isGroup": "是群組",
+      "isSecure": "安全：",
+      "port": "連接埠：",
+      "host": "主機：",
+      "ip": "IP：",
+      "countryCode": "國家代碼：",
+      "region": "地區：",
+      "city": "城市：",
+      "asn": "ASN：",
+      "organization": "組織：",
+      "location": "位置：",
+      "postalCode": "郵遞區號："
+    },
+    "windowClosing": {
+      "askEachTime": "每次詢問",
+      "alertMessage": "隱藏還是退出應用程式？",
+      "remember": "記住我的選擇"
+    }
+  },
+  "connection": {
+    "tapToConnect": "點擊連線",
+    "connect": "連線",
+    "connecting": "連線中...",
+    "connected": "已連線",
+    "disconnect": "中斷連線",
+    "disconnecting": "中斷連線中...",
+    "reconnect": "重新連線",
+    "reconnectMsg": "正在重新連線以套用變更...",
+    "secure": "由 WARP 保護"
+  },
+  "errors": {
+    "unexpected": "意外錯誤",
+    "connection": {
+      "unexpected": "意外連線錯誤",
+      "timeout": "連線超時",
+      "badResponse": "回應錯誤",
+      "connectionError": "連線錯誤",
+      "badCertificate": "憑證無效"
+    },
+    "profiles": {
+      "unexpected": "意外錯誤",
+      "notFound": "未找到設定檔",
+      "invalidConfig": "設定無效",
+      "invalidUrl": "URL 無效",
+      "canceledByUser": "使用者已取消"
+    },
+    "connectivity": {
+      "unexpected": "意外失敗",
+      "missingVpnPermission": "缺少 VPN 權限",
+      "missingNotificationPermission": "缺少通知權限",
+      "core": "核心錯誤"
+    },
+    "singbox": {
+      "serviceNotRunning": "服務未運行",
+      "missingPrivilege": "缺少權限",
+      "missingPrivilegeMsg": "VPN 模式需要管理員權限。請以管理員身份重新啟動應用，或更改服務模式。",
+      "invalidConfigOptions": "設定選項無效",
+      "invalidConfig": "設定無效"
+    },
+    "warp": {
+      "missingLicense": "WARP 授權缺失",
+      "missingLicenseMsg": "所選設定檔使用 WARP 功能；要使用此功能，必須同意 WARP 授權條款。"
+    }
+  }
+}

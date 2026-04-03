@@ -1,0 +1,643 @@
+{
+  "common": {
+    "appTitle": "هیدیفای",
+    "start": "شروع",
+    "version": "نسخه",
+    "ok": "باشه",
+    "cancel": "لغو",
+    "kContinue": "ادامه",
+    "showMore": "نمایش بیشتر",
+    "showLess": "نمایش کمتر",
+    "filter": "فیلتر",
+    "all": "همه",
+    "pause": "مکث",
+    "resume": "ادامه",
+    "clear": "پاک‌سازی",
+    "close": "بستن",
+    "auto": "خودکار",
+    "manually": "دستی",
+    "name": "نام",
+    "url": "URL",
+    "add": "افزودن",
+    "clipboard": "کلیپ‌بورد",
+    "addToClipboard": "افزودن به کلیپ‌بورد",
+    "scanQr": "اسکن QR",
+    "free": "رایگان",
+    "warp": "WARP",
+    "fragment": "Fragment",
+    "help": "راهنما",
+    "save": "ذخیره",
+    "update": "به‌روزرسانی",
+    "share": "اشتراک‌گذاری",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "discard": "صرف‌نظر",
+    "import": "وارد کردن",
+    "export": "خروجی گرفتن",
+    "later": "بعداً",
+    "ignore": "نادیده گرفتن",
+    "quit": "خروج",
+    "notSet": "تنظیم نشده",
+    "hide": "پنهان کردن",
+    "exit": "خروج",
+    "reset": "بازنشانی",
+    "done": "انجام شد",
+    "search": "جستجو",
+    "decline": "رد کردن",
+    "agree": "موافقم",
+    "empty": "خالی",
+    "unknown": "ناشناخته",
+    "hidden": "پنهان",
+    "timeout": "عدم پاسخ",
+    "sort": "مرتب‌سازی",
+    "dashboard": "داشبورد",
+    "interval": {
+      "day": {
+        "zero": "",
+        "one": "$n روز",
+        "other": "$n روز"
+      },
+      "hour": {
+        "zero": "",
+        "one": "$n ساعت",
+        "other": "$n ساعت"
+      }
+    },
+    "msg": {
+      "permission": {
+        "denied": "دسترسی رد شد"
+      },
+      "export": {
+        "clipboard": {
+          "success": "با موفقیت در کلیپ‌بورد کپی شد",
+          "failure": "کپی در کلیپ‌بورد ناموفق بود",
+          "contentTooLarge": "محتوا بیش از حد بزرگ است. به جای آن از خروجی فایل استفاده کنید"
+        },
+        "file": {
+          "success": "فایل JSON با موفقیت ایجاد شد",
+          "failure": "ایجاد فایل ناموفق بود"
+        }
+      },
+      "import": {
+        "confirm": "تأیید ورود اطلاعات",
+        "success": "با موفقیت وارد شد",
+        "failure": "وارد کردن ناموفق بود"
+      }
+    }
+  },
+  "intro": {
+    "banner": "هرآنچه برای اینترنت بدون محدودیت نیاز دارید",
+    "termsAndPolicyCaution(rich)": "با ادامه، شما با ${tap(@:pages.about.termsAndConditions)} موافقت می‌کنید",
+    "info(rich)": "ساخته شده با ❤️ توسط هیدیفای - ${tap_source(متن‌باز)} (${tap_license(مجوز)})"
+  },
+  "pages": {
+    "home": {
+      "title": "خانه",
+      "quickSettings": "تنظیمات سریع"
+    },
+    "proxies": {
+      "title": "پروکسی‌ها",
+      "sort": "مرتب‌سازی پروکسی‌ها",
+      "testDelay": "تست تأخیر",
+      "empty": "هیچ پروکسی موجود نیست",
+      "activeProxy": "پروکسی فعال",
+      "unknownIp": "IP ناشناخته",
+      "sortOptions": {
+        "unsorted": "پیش‌فرض",
+        "name": "بر اساس نام",
+        "delay": "بر اساس تأخیر"
+      },
+      "ipInfo": {
+        "address": "آدرس IP",
+        "country": "کشور",
+        "organization": "سازمان"
+      },
+      "delay": {
+        "result": "تأخیر: ${delay} میلی‌ثانیه",
+        "timeout": "تست تأخیر ناموفق بود",
+        "testing": "تأخیر: در حال تست..."
+      }
+    },
+    "profiles": {
+      "title": "پروفایل‌ها",
+      "add": "افزودن پروفایل",
+      "update": "به‌روزرسانی پروفایل",
+      "viewAllProfiles": "مشاهده همه پروفایل‌ها",
+      "activeProfileName": "نام پروفایل فعال: «${name}»",
+      "nonActiveProfileName": "انتخاب «${name}» به عنوان پروفایل فعال",
+      "freeSubNotFound": "اشتراک رایگان یافت نشد",
+      "freeSubNotFoundForRegion": "اشتراک رایگان برای منطقه «${region}» یافت نشد",
+      "failedToLoad": "بارگذاری ناموفق بود",
+      "updateSubscriptions": "به‌روزرسانی اشتراک‌ها",
+      "share": {
+        "urlToClipboard": "URL به کلیپ‌بورد",
+        "showUrlQr": "نمایش QR کد URL",
+        "jsonToClipboard": "JSON به کلیپ‌بورد"
+      },
+      "msg": {
+        "save": {
+          "success": "پروفایل با موفقیت ذخیره شد"
+        },
+        "invalidUrl": "URL نامعتبر است",
+        "add": {
+          "failure": "افزودن پروفایل ناموفق بود"
+        },
+        "update": {
+          "success": "پروفایل با موفقیت به‌روز شد",
+          "successNamed": "«${name}» با موفقیت به‌روز شد",
+          "failure": "به‌روزرسانی پروفایل ناموفق بود",
+          "failureNamed": "به‌روزرسانی «${name}» ناموفق بود"
+        },
+        "delete": {
+          "success": "پروفایل با موفقیت حذف شد"
+        }
+      }
+    },
+    "profileDetails": {
+      "title": "پروفایل",
+      "lastUpdate": "آخرین به‌روزرسانی",
+      "form": {
+        "nameHint": "نام پروفایل",
+        "emptyName": "نام الزامی است",
+        "invalidUrl": "URL نامعتبر است",
+        "urlHint": "URL کامل کانفیگ",
+        "disableAutoUpdate": "غیرفعال کردن به‌روزرسانی خودکار",
+        "autoUpdateInterval": "فاصله زمانی به‌روزرسانی خودکار",
+        "loading": "در حال افزودن پروفایل..."
+      }
+    },
+    "logs": {
+      "title": "گزارش‌ها",
+      "shareCoreLogs": "اشتراک‌گذاری گزارش‌های هسته",
+      "shareAppLogs": "اشتراک‌گذاری گزارش‌های برنامه"
+    },
+    "about": {
+      "title": "درباره",
+      "notAvailableMsg": "شما در حال استفاده از آخرین نسخه هستید",
+      "checkForUpdate": "بررسی برای به‌روزرسانی",
+      "openWorkingDir": "باز کردن پوشه کاری",
+      "sourceCode": "کد منبع",
+      "telegramChannel": "کانال تلگرام",
+      "termsAndConditions": "شرایط و ضوابط",
+      "privacyPolicy": "سیاست حفظ حریم خصوصی"
+    },
+    "settings": {
+      "title": "تنظیمات",
+      "resetTunnel": "بازنشانی پروفایل VPN",
+      "options": {
+        "import": {
+          "clipboard": "وارد کردن تنظیمات از کلیپ‌بورد",
+          "file": "وارد کردن تنظیمات از فایل"
+        },
+        "export": {
+          "anonymousToClipboard": "کپی تنظیمات ناشناس به کلیپ‌بورد",
+          "anonymousToFile": "خروجی تنظیمات ناشناس به فایل",
+          "allToClipboard": "کپی تمام تنظیمات به کلیپ‌بورد",
+          "allToFile": "خروجی تمام تنظیمات به فایل"
+        },
+        "reset": "بازنشانی تنظیمات"
+      },
+      "general": {
+        "title": "عمومی",
+        "locale": "زبان",
+        "themeMode": "حالت پوسته",
+        "themeModes": {
+          "system": "پیش‌فرض سیستم",
+          "dark": "حالت تیره",
+          "light": "حالت روشن",
+          "black": "حالت مشکی"
+        },
+        "enableAnalytics": "فعال‌سازی آمار",
+        "enableAnalyticsMsg": "اجازه جمع‌آوری آمار و ارسال گزارش‌های خطا برای بهبود برنامه",
+        "autoIpCheck": "بررسی خودکار IP اتصال",
+        "dynamicNotification": "نمایش سرعت در اعلان",
+        "hapticFeedback": "بازخورد لرزشی",
+        "actionAtClosing": "اقدام هنگام بستن",
+        "autoStart": "شروع هنگام ورود به سیستم",
+        "silentStart": "شروع در حالت کمینه",
+        "ignoreBatteryOptimizations": "غیرفعال کردن بهینه‌سازی باتری",
+        "ignoreBatteryOptimizationsMsg": "حذف محدودیت‌ها برای عملکرد بهینه VPN",
+        "memoryLimit": "محدودیت حافظه",
+        "memoryLimitMsg": "در صورت مواجهه با خطای کمبود حافظه یا بسته‌شدن‌های مکرر برنامه، این گزینه را فعال کنید",
+        "debugMode": "حالت اشکال‌زدایی",
+        "debugModeMsg": "برای اعمال این تغییر، برنامه را مجدداً راه‌اندازی کنید",
+        "logLevel": "سطح گزارش‌گیری",
+        "connectionTestUrl": "URL تست اتصال",
+        "urlTestInterval": "فاصله زمانی تست URL",
+        "clashApiPort": "پورت Clash API",
+        "useXrayCoreWhenPossible": "استفاده از xray-core در صورت امکان",
+        "useXrayCoreWhenPossibleMsg": "هنگام پردازش لینک‌های اشتراک از xray-core استفاده شود. برای فعال‌سازی این گزینه باید لینک اشتراک را مجدداً وارد کنید."
+      },
+      "routing": {
+        "title": "مسیریابی",
+        "perAppProxy": {
+          "title": "پروکسی برای هر برنامه",
+          "hideSysApps": "پنهان کردن برنامه‌های سیستمی",
+          "options": {
+            "import": {
+              "clipboard": "وارد کردن انتخاب‌ها از کلیپ‌بورد",
+              "file": "وارد کردن انتخاب‌ها از فایل",
+              "msg": "وارد کردن، انتخاب‌های فعلی شما را جایگزین خواهد کرد. آیا مطمئن هستید که می‌خواهید ادامه دهید؟"
+            },
+            "export": {
+              "clipboard": "کپی انتخاب‌ها به کلیپ‌بورد",
+              "file": "خروجی انتخاب‌ها به فایل"
+            },
+            "shareToAll": "اشتراک‌گذاری با همه",
+            "clearAllSelections": "پاک کردن تمام انتخاب‌ها"
+          },
+          "modes": {
+            "all": "همه",
+            "proxy": "پروکسی",
+            "bypass": "دور زدن",
+            "allMsg": "پروکسی کردن تمام برنامه‌ها",
+            "proxyMsg": "فقط برنامه‌های انتخاب‌شده پروکسی شوند",
+            "bypassMsg": "برنامه‌های انتخاب‌شده پروکسی نشوند"
+          },
+          "autoSelection": {
+            "title": "انتخاب خودکار",
+            "performNow": "اکنون انجام بده",
+            "resetToDefault": "بازنشانی به پیش‌فرض",
+            "autoUpdateInterval": "فاصله زمانی به‌روزرسانی خودکار",
+            "toast": {
+              "success": "انتخاب خودکار برنامه‌ها با موفقیت انجام شد",
+              "failure": "انتخاب خودکار ناموفق بود",
+              "regionNotFound": "انتخاب خودکار برای منطقه «${region}» یافت نشد",
+              "alreadyInAuto": "انتخاب‌های شما از قبل در لیست خودکار موجود است"
+            },
+            "dialog": {
+              "title": "انتخاب خودکار برنامه‌ها",
+              "msg": "قابلیت انتخاب خودکار برای پروکسی هر برنامه به دلیل تغییر منطقه به «${region}» غیرفعال شد"
+            }
+          }
+        },
+        "region": "منطقه",
+        "regions": {
+          "ir": "ایران (ir)",
+          "cn": "چین (cn)",
+          "ru": "روسیه (ru)",
+          "af": "افغانستان (af)",
+          "id": "اندونزی (id)",
+          "tr": "ترکیه (tr)",
+          "br": "برزیل (br)",
+          "other": "سایر"
+        },
+        "balancerStrategy": {
+          "title": "استراتژی Balancer",
+          "roundRobin": "Round robin",
+          "consistentHash": "Consistent hash",
+          "stickySession": "Sticky session"
+        },
+        "blockAds": "مسدودسازی تبلیغات",
+        "bypassLan": "دور زدن LAN",
+        "resolveDestination": "تحلیل آدرس مقصد",
+        "ipv6Route": "مسیریابی IPv6",
+        "ipv6Modes": {
+          "disable": "غیرفعال",
+          "enable": "فعال",
+          "prefer": "ترجیحی",
+          "only": "انحصاری"
+        },
+        "routeRule": {
+          "title": "قوانین مسیریابی",
+          "options": {
+            "import": {
+              "clipboard": "وارد کردن قوانین از کلیپ‌بورد",
+              "file": "وارد کردن قوانین از فایل"
+            },
+            "export": {
+              "clipboard": "کپی قوانین در کلیپ‌بورد",
+              "file": "ذخیره قوانین در فایل"
+            },
+            "reset": "بازنشانی قوانین"
+          },
+          "deleteRule": "حذف قانون",
+          "createRule": "ایجاد قانون جدید",
+          "rule": {
+            "title": "قانون",
+            "ruleChanged": "قانون تغییر کرد",
+            "ruleChangedMsg": "آیا می‌خواهید ویرایش‌های خود را ذخیره کنید؟",
+            "onlyTunMode": "فقط در حالت TUN در دسترس است",
+            "notAvailabeInThisPlatform": "در این پلتفرم در دسترس نیست",
+            "canNotBeEmpty": "نمی‌تواند خالی باشد",
+            "validUrlEx": "https://example.com",
+            "validUrl": "«URL» معتبر مانند\n@:pages.settings.routing.routeRule.rule.validUrlEx",
+            "validProcessNameEx": "Chrome.exe یا google chrome یا chrome",
+            "validProcessName": "«نام فرآیند» معتبر مانند\n@:pages.settings.routing.routeRule.rule.validProcessNameEx",
+            "validProcessPathEx": "C:\\Pro...\\chrome.exe\n/App.../Google Chrome\n/usr/lib.../chrome",
+            "validProcessPath": "«مسیر فرآیند» معتبر مانند\n@:pages.settings.routing.routeRule.rule.validProcessPathEx",
+            "validPortRangeEx": "80 یا 1-65000",
+            "validPortRange": "«پورت» یا «محدوده پورت» معتبر مانند\n@:pages.settings.routing.routeRule.rule.validPortRangeEx",
+            "validIpCidrEx": "8.8.8.8 یا 10.0.0.0/24",
+            "validIpCidr": "IP CIDR معتبر مانند\n@:pages.settings.routing.routeRule.rule.validIpCidrEx",
+            "validDomainEx": "Google.com یا dl.google.com",
+            "validDomain": "«دامنه» معتبر مانند\n@:pages.settings.routing.routeRule.rule.validDomainEx",
+            "validDomainSuffixEx": ".com یا .ir",
+            "validDomainSuffix": "«پسوند دامنه» معتبر مانند\n@:pages.settings.routing.routeRule.rule.validDomainSuffixEx",
+            "tileTitle(map)": {
+              "name": "نام",
+              "outbound": "خروجی در صورت تطابق",
+              "rule_set": "URL مجموعه قوانین",
+              "package_name": "نام‌های بسته",
+              "process_name": "نام‌های فرآیند",
+              "process_path": "مسیرهای فرآیند",
+              "network": "شبکه‌ها",
+              "port_range": "پورت‌های مقصد",
+              "source_port_range": "پورت‌های مبدأ",
+              "protocol": "پروتکل",
+              "ip_cidr": "IP CIDR مقصد",
+              "source_ip_cidr": "IP CIDR مبدأ",
+              "domain": "دامنه",
+              "domain_suffixe": "پسوند دامنه",
+              "domain_keyword": "کلمه کلیدی دامنه",
+              "domain_regex": "عبارت منظم دامنه"
+            },
+            "outbound(map)": {
+              "proxy": "پروکسی",
+              "direct": "مستقیم",
+              "direct_with_fragment": "مستقیم با فرگمنت",
+              "block": "مسدود"
+            },
+            "network(map)": {
+              "all": "همه",
+              "tcp": "TCP",
+              "udp": "UDP"
+            },
+            "protocol(map)": {
+              "": "همه",
+              "tls": "TLS",
+              "http": "HTTP",
+              "quic": "QUIC",
+              "stun": "STUN",
+              "dns": "DNS",
+              "bittorrent": "BitTorrent"
+            }
+          },
+          "genericList": {
+            "addNew": "افزودن مقدار جدید",
+            "update": "به‌روزرسانی مقدار",
+            "clearList": "پاک کردن لیست",
+            "clearListMsg": "تمام موارد حذف شدند"
+          },
+          "androidApps": {
+            "pageTitle": "برنامه‌های اندروید",
+            "showSystemApps": "نمایش برنامه‌های سیستمی",
+            "hideSystemApps": "پنهان کردن برنامه‌های سیستمی",
+            "clearSelection": "پاک کردن انتخاب‌ها",
+            "uninstalled": "نصب نشده"
+          }
+        }
+      },
+      "dns": {
+        "title": "DNS",
+        "remoteDns": "DNS اصلی (ریموت)",
+        "remoteDnsDomainStrategy": "استراتژی دامنه DNS",
+        "directDns": "DNS پروکسی‌ها (مستقیم)",
+        "directDnsDomainStrategy": "استراتژی دامنه DNS مستقیم",
+        "enableDnsRouting": "فعال‌سازی مسیریابی DNS",
+        "enableFakeDns": "فعال‌سازی DNS جعلی",
+        "domainStrategy": {
+          "auto": "خودکار",
+          "preferIpv6": "ترجیح IPv6",
+          "preferIpv4": "ترجیح IPv4",
+          "ipv4Only": "فقط IPv4",
+          "ipv6Only": "فقط IPv6"
+        }
+      },
+      "inbound": {
+        "title": "ورودی",
+        "serviceMode": "حالت سرویس",
+        "serviceModes": {
+          "proxy": "فقط سرویس پروکسی",
+          "systemProxy": "تنظیم پروکسی سیستم",
+          "tun": "VPN",
+          "tunService": "سرویس VPN"
+        },
+        "shortServiceModes": {
+          "proxy": "پروکسی",
+          "systemProxy": "پروکسی سیستم",
+          "tun": "VPN",
+          "tunService": "سرویس VPN"
+        },
+        "strictRoute": "مسیربندی سخت‌گیرانه",
+        "tunImplementation": "پیاده‌سازی Tun",
+        "tunImplementations": {
+          "mixed": "ترکیبی",
+          "system": "سیستم",
+          "gvisor": "gVisor"
+        },
+        "mixedPort": "پورت ترکیبی",
+        "tproxyPort": "پورت پروکسی شفاف",
+        "directPort": "پورت مستقیم",
+        "redirectPort": "پورت تغییر مسیر",
+        "allowConnectionFromLan": "اشتراک VPN در شبکه محلی"
+      },
+      "tlsTricks": {
+        "title": "ترفندهای TLS",
+        "enable": "فعال‌سازی fragment",
+        "packets": "بسته‌های Fragment",
+        "packetsTlsHello": "TLS Hello",
+        "packets1_1": "1-1",
+        "packets1_2": "1-2",
+        "packets1_3": "1-3",
+        "packets1_4": "1-4",
+        "packets1_5": "1-5",
+        "size": "اندازه fragment",
+        "sleep": "تأخیر fragment",
+        "mixedSniCase": {
+          "enable": "فعال‌سازی mixed SNI case"
+        },
+        "padding": {
+          "enable": "فعال‌سازی padding",
+          "size": "اندازه padding"
+        }
+      },
+      "warp": {
+        "title": "WARP",
+        "enable": "فعال‌سازی WARP",
+        "generateConfig": "ایجاد کانفیگ WARP",
+        "configGenerated": "کانفیگ Warp ایجاد شد",
+        "missingConfig": "کانفیگ WARP موجود نیست",
+        "detourMode": "حالت مسیریابی WARP",
+        "detourModes": {
+          "proxyOverWarp": "عبور پروکسی‌ها از طریق WARP",
+          "warpOverProxy": "عبور WARP از طریق پروکسی‌ها",
+          "proxyOverWarpExplain": "رفع انسداد پروکسی‌ها با WARP",
+          "warpOverProxyExplain": "امنیت بیشتر با WARP"
+        },
+        "licenseKey": "کلید لایسنس",
+        "cleanIp": "IP تمیز",
+        "port": "پورت",
+        "noise": {
+          "count": "تعداد نویز",
+          "mode": "حالت نویز",
+          "size": "اندازه نویز",
+          "delay": "تأخیر نویز"
+        }
+      }
+    }
+  },
+  "components": {
+    "stats": {
+      "connection": "اتصال",
+      "traffic": "ترافیک",
+      "trafficLive": "ترافیک لحظه‌ای",
+      "trafficTotal": "ترافیک کل",
+      "uplink": "ارسال",
+      "downlink": "دریافت",
+      "speed": "سرعت",
+      "totalTransferred": "کل منتقل شده"
+    },
+    "subscriptionInfo": {
+      "upload": "آپلود",
+      "download": "دانلود",
+      "total": "کل ترافیک",
+      "expireDate": "تاریخ انقضا",
+      "expired": "منقضی شده",
+      "noTraffic": "حجم تمام شده",
+      "remainingTime": "زمان باقی‌مانده",
+      "remainingDuration": "${duration} روز باقی‌مانده",
+      "remainingDurationNew": "${duration} روز",
+      "remainingTrafficSemanticLabel": "${consumed} از ${total} ترافیک مصرف شده",
+      "remainingTraffic": "ترافیک باقی‌مانده",
+      "remainingUsage": "باقی‌مانده",
+      "profileSite": "سرویس‌دهنده",
+      "profileSupport": "پشتیبانی"
+    }
+  },
+  "dialogs": {
+    "sortProfiles": {
+      "title": "مرتب‌سازی بر اساس",
+      "sort": {
+        "name": "بر اساس نام",
+        "lastUpdate": "آخرین به‌روزرسانی"
+      }
+    },
+    "warpLicense": {
+      "title": "رضایت‌نامه Cloudflare WARP",
+      "description(rich)": "Cloudflare WARP یک ارائه‌دهنده رایگان WireGuard VPN است. با فعال کردن این گزینه، شما با ${tos(شرایط خدمات)} و ${privacy(سیاست حفظ حریم خصوصی)} Cloudflare WARP موافقت می‌کنید."
+    },
+    "newVersion": {
+      "title": "به‌روزرسانی موجود است",
+      "msg": "نسخه جدیدی از @:common.appTitle در دسترس است. آیا مایل به به‌روزرسانی هستید؟",
+      "currentVersion": "نسخه فعلی: ",
+      "newVersion": "نسخه جدید: ",
+      "updateNow": "اکنون به‌روزرسانی کن"
+    },
+    "confirmation": {
+      "settings": {
+        "import": {
+          "msg": "این عمل تمام تنظیمات فعلی شما را بازنویسی خواهد کرد. آیا مطمئن هستید؟"
+        }
+      },
+      "profile": {
+        "delete": {
+          "title": "حذف پروفایل",
+          "msg": "آیا از حذف دائمی این پروفایل مطمئن هستید؟"
+        }
+      },
+      "perAppProxy": {
+        "shareOnGithub": {
+          "title": "بهبود انتخاب خودکار",
+          "msg": "با اشتراک‌گذاری برنامه‌های انتخاب‌شده، به تکمیل لیست «انتخاب خودکار» کمک می‌کنید"
+        },
+        "import": {
+          "msg": "این عمل تمام انتخاب‌های فعلی شما برای پروکسی برنامه‌ها را جایگزین خواهد کرد. آیا مطمئن هستید؟"
+        }
+      },
+      "routeRule": {
+        "delete": {
+          "title": "حذف قانون",
+          "msg": "آیا از حذف قانون «$rulename» مطمئن هستید؟"
+        }
+      }
+    },
+    "experimentalNotice": {
+      "title": "ویژگی‌های آزمایشی در حال استفاده",
+      "msg": "شما برخی ویژگی‌های آزمایشی را فعال کرده‌اید که ممکن است بر کیفیت اتصال تأثیر گذاشته و باعث خطاهای غیرمنتظره شوند. همیشه می‌توانید این گزینه‌ها را از صفحه تنظیمات تغییر داده یا بازنشانی کنید.",
+      "disable": "دیگر نمایش نده"
+    },
+    "noActiveProfile": {
+      "title": "یک پروفایل انتخاب کنید",
+      "msg": "بیایید با افزودن یک پروفایل اتصال که شامل جزئیات اتصال VPN شماست، شروع کنیم.\n\nهنوز سرور VPN ندارید؟ نگران نباشید، با دنبال کردن راهنمای زیر می‌توانید به سرعت و رایگان یکی برای خودتان بسازید.",
+      "helpBtn": {
+        "label": "راهنمایی کن",
+        "url": "https://hiddify.com/manager/"
+      }
+    },
+    "unknownDomainsWarning": {
+      "title": "هشدار لینک خارجی",
+      "youAreAboutToVisit": "شما در حال بازدید از این آدرس هستید:",
+      "thisWebsiteIsNotInOurTrustedList": "این وب‌سایت در لیست مورد اعتماد ما نیست. لطفاً با احتیاط ادامه دهید."
+    },
+    "proxyInfo": {
+      "fullTag": "تگ کامل:",
+      "type": "نوع:",
+      "testTime": "زمان تست:",
+      "testDelay": "تأخیر تست:",
+      "isSelected": "انتخاب شده:",
+      "isGroup": "گروه است",
+      "isSecure": "امن است:",
+      "port": "پورت:",
+      "host": "میزبان:",
+      "ip": "IP:",
+      "countryCode": "کد کشور:",
+      "region": "منطقه:",
+      "city": "شهر:",
+      "asn": "ASN:",
+      "organization": "سازمان:",
+      "location": "مکان:",
+      "postalCode": "کد پستی:"
+    },
+    "windowClosing": {
+      "askEachTime": "هر بار بپرس",
+      "alertMessage": "پنهان کردن یا خروج از برنامه؟",
+      "remember": "انتخابم را به خاطر بسپار"
+    }
+  },
+  "connection": {
+    "tapToConnect": "برای اتصال ضربه بزنید",
+    "connect": "اتصال",
+    "connecting": "در حال اتصال...",
+    "connected": "متصل شد",
+    "disconnect": "قطع اتصال",
+    "disconnecting": "در حال قطع اتصال...",
+    "reconnect": "اتصال مجدد",
+    "reconnectMsg": "در حال اتصال مجدد برای اعمال تغییرات...",
+    "secure": "ایمن شده با WARP"
+  },
+  "errors": {
+    "unexpected": "خطای غیرمنتظره",
+    "connection": {
+      "unexpected": "خطای غیرمنتظره در اتصال",
+      "timeout": "اتصال با وقفه زمانی مواجه شد",
+      "badResponse": "پاسخ نامعتبر",
+      "connectionError": "خطای اتصال",
+      "badCertificate": "گواهی‌نامه نامعتبر"
+    },
+    "profiles": {
+      "unexpected": "خطای غیرمنتظره",
+      "notFound": "پروفایل یافت نشد",
+      "invalidConfig": "کانفیگ‌های نامعتبر",
+      "invalidUrl": "URL نامعتبر",
+      "canceledByUser": "توسط کاربر لغو شد"
+    },
+    "connectivity": {
+      "unexpected": "شکست غیرمنتظره",
+      "missingVpnPermission": "مجوز VPN وجود ندارد",
+      "missingNotificationPermission": "مجوز اعلان وجود ندارد",
+      "core": "خطای هسته"
+    },
+    "singbox": {
+      "serviceNotRunning": "سرویس در حال اجرا نیست",
+      "missingPrivilege": "دسترسی وجود ندارد",
+      "missingPrivilegeMsg": "حالت VPN به دسترسی ادمین نیاز دارد. یا برنامه را به عنوان ادمین مجدداً راه‌اندازی کنید یا حالت سرویس را تغییر دهید.",
+      "invalidConfigOptions": "گزینه‌های پیکربندی نامعتبر",
+      "invalidConfig": "پیکربندی نامعتبر"
+    },
+    "warp": {
+      "missingLicense": "لایسنس Warp",
+      "missingLicenseMsg": "پروفایل انتخاب‌شده از ویژگی WARP استفاده می‌کند؛ برای استفاده از این قابلیت، باید با لایسنس WARP موافقت شود."
+    }
+  }
+}
