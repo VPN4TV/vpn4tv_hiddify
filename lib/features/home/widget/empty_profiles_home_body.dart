@@ -32,7 +32,7 @@ class EmptyProfilesHomeBody extends HookConsumerWidget {
             ElevatedButton.icon(
               onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => AddConfigPage())),
               icon: const Icon(Icons.add),
-              label: Text(t.intro.continueWithBot),
+              label: Text(t.intro.addProfileViaTelegram),
               autofocus: isAndroidTv,
             ),
           ],

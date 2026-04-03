@@ -1,6 +1,6 @@
 {
   "common": {
-    "appTitle": "Hiddify",
+    "appTitle": "VPN4TV",
     "start": "Start",
     "version": "Version",
     "ok": "OK",
@@ -89,18 +89,19 @@
     "banner": "All you need for an unrestricted internet",
     "termsAndPolicyCaution(rich)": "By continuing you agree to ${tap(@:pages.about.termsAndConditions)}",
     "info(rich)": "Made with ❤️ by Hiddify - ${tap_source(Open Source)} (${tap_license(License)})",
-    "waitingForQrScan": "Waiting for QR scan...",
-    "waitingForCodeInput": "Waiting for code input...",
-    "vpnSetupComplete": "VPN setup complete!",
+    "waitingForQrScan": "Waiting for QR code scan or 10-digit code input...",
+    "waitingForCodeInput": "Waiting for QR code scan or 10-digit code input...",
+    "vpnSetupComplete": "VPN setup complete",
     "userInfoReceived": "User info received",
     "connectionError": "Connection error",
-    "scanQrCodePrompt": "Scan this QR code with your phone",
+    "scanQrCodePrompt": "Scan QR code to add profile",
     "or": "OR",
-    "enter10DigitCode": "Enter this code",
-    "continueWithBot": "Continue with Telegram bot",
+    "enter10DigitCode": "Enter 10-digit code",
+    "continueWithBot": "Please enter the 10-digit code in @VPN4TV_bot or at https://api.vpn4tv.com, or scan the QR code to complete VPN setup.",
     "start": "Start",
     "addProfileLater": "Add profile later",
-    "userInfo": "User: {firstName} {lastName}"
+    "userInfo": "User: {firstName} {lastName}",
+    "addProfileViaTelegram": "Add profile via Telegram"
   },
   "pages": {
     "home": {

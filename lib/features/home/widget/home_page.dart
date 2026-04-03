@@ -13,6 +13,8 @@ import 'package:hiddify/features/profile/widget/profile_tile.dart';
 import 'package:hiddify/features/proxy/active/active_proxy_card.dart';
 import 'package:hiddify/features/proxy/active/active_proxy_delay_indicator.dart';
 import 'package:hiddify/features/add_config/add_config_page.dart';
+import 'package:hiddify/features/connection/model/connection_status.dart';
+import 'package:hiddify/features/connection/notifier/connection_notifier.dart';
 import 'package:hiddify/providers/device_info_providers.dart';
 import 'package:hiddify/gen/assets.gen.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -93,18 +95,9 @@ class _HomePageTv extends HookConsumerWidget {
                                 ],
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 16),
-                              child: Column(
-                                children: [
-                                  const AddProfileViaTelegramButton(),
-                                  const Gap(16),
-                                  ElevatedButton(
-                                    onPressed: () => _showTvMenu(context, ref),
-                                    child: const Text("Menu"),
-                                  ),
-                                ],
-                              ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 16),
+                              child: AddProfileViaTelegramButton(),
                             ),
                             ProfileTile(
                               profile: profile,
@@ -143,33 +136,6 @@ class _HomePageTv extends HookConsumerWidget {
     );
   }
 
-  void _showTvMenu(BuildContext context, WidgetRef ref) {
-    final t = ref.read(translationsProvider).requireValue;
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return ListView(
-          children: <Widget>[
-            ListTile(
-              leading: const Icon(Icons.add),
-              title: Text(t.intro.continueWithBot),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (_) => AddConfigPage()));
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: Text(t.pages.about.title),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
 }
 
 class _HomePageMobile extends HookConsumerWidget {
@@ -290,9 +256,17 @@ class AddProfileViaTelegramButton extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final t = ref.watch(translationsProvider).requireValue;
     return ElevatedButton.icon(
-      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => AddConfigPage())),
+      onPressed: () async {
+        final connectionStatus = ref.read(connectionNotifierProvider).valueOrNull;
+        if (connectionStatus is Connected) {
+          await ref.read(connectionNotifierProvider.notifier).toggleConnection();
+        }
+        if (context.mounted) {
+          Navigator.push(context, MaterialPageRoute(builder: (_) => AddConfigPage()));
+        }
+      },
       icon: const Icon(FluentIcons.add_24_regular),
-      label: Text(t.intro.continueWithBot),
+      label: Text(t.intro.addProfileViaTelegram),
     );
   }
 }
