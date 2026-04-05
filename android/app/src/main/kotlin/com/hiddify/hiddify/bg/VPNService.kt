@@ -55,22 +55,24 @@ class VPNService : VpnService(), PlatformInterfaceWrapper {
     var systemProxyAvailable = false
     var systemProxyEnabled = false
     fun addIncludePackage(builder: Builder, packageName: String) {
-        if (packageName == this.packageName) { 
+        if (packageName == this.packageName) {
             Log.d("VpnService","Cannot include myself: $packageName")
             return
         }
-        try {     
+        try {
             Log.d("VpnService","Including $packageName")
             builder.addAllowedApplication(packageName)
-        } catch (e: NameNotFoundException) {
+        } catch (e: Exception) {
+            Log.w("VpnService", "Failed to include $packageName: ${e.message}")
         }
     }
 
     fun addExcludePackage(builder: Builder, packageName: String) {
-        try {     
+        try {
             Log.d("VpnService","Excluding $packageName")
             builder.addDisallowedApplication(packageName)
-        } catch (e: NameNotFoundException) {
+        } catch (e: Exception) {
+            Log.w("VpnService", "Failed to exclude $packageName: ${e.message}")
         }
     }
 
