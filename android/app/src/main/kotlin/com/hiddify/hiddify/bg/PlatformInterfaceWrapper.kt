@@ -68,10 +68,16 @@ interface PlatformInterfaceWrapper : PlatformInterface {
                 owner.androidPackageName = owner.userName
             }
             return owner
+        } catch (e: SecurityException) {
+            Log.w("PlatformInterface", "getConnectionOwnerUid: permission denied, returning empty owner", e)
+            val owner = ConnectionOwner()
+            owner.userId = Process.INVALID_UID
+            return owner
         } catch (e: Exception) {
             Log.e("PlatformInterface", "getConnectionOwnerUid", e)
-            e.printStackTrace(System.err)
-            throw e
+            val owner = ConnectionOwner()
+            owner.userId = Process.INVALID_UID
+            return owner
         }
     }
 
