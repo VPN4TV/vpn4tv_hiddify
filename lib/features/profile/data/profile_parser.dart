@@ -47,6 +47,11 @@ class ProfileParser {
     'profile-web-page-url',
     'enable-warp',
     'enable-fragment',
+    // Remnawave HWID response headers
+    'x-hwid-active',
+    'x-hwid-not-supported',
+    'x-hwid-max-devices-reached',
+    'x-hwid-limit',
   ];
 
   final Ref _ref;

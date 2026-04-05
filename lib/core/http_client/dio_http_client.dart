@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:dio_smart_retry/dio_smart_retry.dart';
 
+import 'package:hiddify/core/http_client/hwid_service.dart';
 import 'package:hiddify/utils/custom_loggers.dart';
 
 class DioHttpClient with InfraLogger {
@@ -97,10 +98,13 @@ class DioHttpClient with InfraLogger {
         : "direct";
     final dio = _dio[mode]!;
 
+    final hwidHeaders = await HwidService.getHeaders();
+    final options = _options(url, userAgent: userAgent, credentials: credentials);
+    options.headers = {...?options.headers, ...hwidHeaders};
     return dio.get<T>(
       url,
       cancelToken: cancelToken,
-      options: _options(url, userAgent: userAgent, credentials: credentials),
+      options: options,
     );
   }
 
@@ -118,11 +122,14 @@ class DioHttpClient with InfraLogger {
         ? "both"
         : "direct";
     final dio = _dio[mode]!;
+    final hwidHeaders = await HwidService.getHeaders();
+    final options = _options(url, userAgent: userAgent, credentials: credentials);
+    options.headers = {...?options.headers, ...hwidHeaders};
     return dio.download(
       url,
       path,
       cancelToken: cancelToken,
-      options: _options(url, userAgent: userAgent, credentials: credentials),
+      options: options,
     );
   }
 
