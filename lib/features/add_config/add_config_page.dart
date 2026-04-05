@@ -5,8 +5,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hiddify/core/localization/translations.dart';
 import 'package:hiddify/features/connection/vpn_connection_manager.dart';
 import 'package:hiddify/features/profile/notifier/profile_notifier.dart';
+import 'package:hiddify/providers/device_info_providers.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 
 class AddConfigPage extends HookConsumerWidget {
@@ -29,6 +31,7 @@ class AddConfigPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final t = ref.watch(translationsProvider).requireValue;
+    final isAndroidTv = ref.watch(isAndroidTvProvider).valueOrNull ?? false;
     final vpnConfigs = useState<List<dynamic>>([]);
     final userInfo = useState<String?>(null);
     final connectionManagerUuid = useState<VpnConnectionManager?>(null);
@@ -36,6 +39,14 @@ class AddConfigPage extends HookConsumerWidget {
     final isVpnAdded = useState(false);
     final code10Digit = useState<String>(generate10DigitCode());
     final combinedStatus = useState<String>(t.intro.waitingForQrScan);
+
+    // Force poll when app returns from background (after opening Telegram)
+    useOnAppLifecycleStateChange((previous, current) {
+      if (current == AppLifecycleState.resumed && !isVpnAdded.value) {
+        connectionManagerUuid.value?.forcePoll();
+        connectionManagerCode.value?.forcePoll();
+      }
+    });
 
     void updateCombinedStatus() {
       String uuidStatus = connectionManagerUuid.value == null
@@ -155,7 +166,20 @@ class AddConfigPage extends HookConsumerWidget {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 const SizedBox(height: 20),
-                Text(t.intro.continueWithBot),
+                if (!isAndroidTv)
+                  ElevatedButton.icon(
+                    onPressed: () => launchUrl(
+                      Uri.parse('https://t.me/VPN4TV_Bot?start=$_uuid'),
+                      mode: LaunchMode.externalApplication,
+                    ),
+                    icon: const Icon(Icons.send),
+                    label: Text(t.intro.addProfileViaTelegram),
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(double.infinity, 48),
+                    ),
+                  ),
+                if (isAndroidTv)
+                  Text(t.intro.continueWithBot),
                 const SizedBox(height: 20),
                 Text(combinedStatus.value),
                 if (userInfo.value != null) ...[

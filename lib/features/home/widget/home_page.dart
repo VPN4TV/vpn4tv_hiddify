@@ -232,6 +232,10 @@ class _HomePageMobile extends HookConsumerWidget {
                                   children: [ConnectionButton(), ActiveProxyDelayIndicator()],
                                 ),
                               ),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 8),
+                                child: AddProfileViaTelegramButton(),
+                              ),
                               ActiveProxyFooter(),
                             ],
                           ),

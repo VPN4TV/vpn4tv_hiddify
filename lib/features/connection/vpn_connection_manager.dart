@@ -46,6 +46,11 @@ class VpnConnectionManager {
     }
   }
 
+  /// Force an immediate poll (e.g. when app returns from background)
+  void forcePoll() {
+    if (_isConnected) _poll();
+  }
+
   void disconnect() {
     _isConnected = false;
     _pollingTimer?.cancel();

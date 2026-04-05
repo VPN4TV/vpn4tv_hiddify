@@ -13,8 +13,10 @@ import 'package:hiddify/core/preferences/general_preferences.dart';
 import 'package:hiddify/features/settings/data/config_option_repository.dart';
 import 'package:hiddify/features/connection/vpn_connection_manager.dart';
 import 'package:hiddify/features/profile/notifier/profile_notifier.dart';
+import 'package:hiddify/providers/device_info_providers.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -39,6 +41,7 @@ class IntroPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final t = ref.watch(translationsProvider).requireValue;
     final theme = Theme.of(context);
+    final isAndroidTv = ref.watch(isAndroidTvProvider).valueOrNull ?? false;
 
     final isStarting = useState(false);
     final vpnConfigs = useState<List<dynamic>>([]);
@@ -94,6 +97,14 @@ class IntroPage extends HookConsumerWidget {
       initializeSettings();
       return null;
     }, []);
+
+    // Force poll when app returns from background (e.g. after opening Telegram)
+    useOnAppLifecycleStateChange((previous, current) {
+      if (current == AppLifecycleState.resumed && !isVpnAdded.value) {
+        connectionManagerUuid.value?.forcePoll();
+        connectionManagerCode.value?.forcePoll();
+      }
+    });
 
     useEffect(() {
       connectionManagerUuid.value = VpnConnectionManager(
@@ -228,13 +239,28 @@ class IntroPage extends HookConsumerWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  Center(
-                    child: Text(
-                      t.intro.continueWithBot,
-                      style: Theme.of(context).textTheme.bodyMedium,
-                      textAlign: TextAlign.center,
+                  if (!isAndroidTv)
+                    Center(
+                      child: ElevatedButton.icon(
+                        onPressed: () => launchUrl(
+                          Uri.parse('https://t.me/VPN4TV_Bot?start=$_uuid'),
+                          mode: LaunchMode.externalApplication,
+                        ),
+                        icon: const Icon(Icons.send),
+                        label: Text(t.intro.addProfileViaTelegram),
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(double.infinity, 48),
+                        ),
+                      ),
                     ),
-                  ),
+                  if (isAndroidTv)
+                    Center(
+                      child: Text(
+                        t.intro.continueWithBot,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   const SizedBox(height: 20),
                   Center(
                     child: Text(
