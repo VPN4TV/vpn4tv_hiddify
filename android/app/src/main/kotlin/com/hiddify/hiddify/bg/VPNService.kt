@@ -54,45 +54,30 @@ class VPNService : VpnService(), PlatformInterfaceWrapper {
 
     var systemProxyAvailable = false
     var systemProxyEnabled = false
+
     fun addIncludePackage(builder: Builder, packageName: String) {
         if (packageName == this.packageName) {
-            Log.d("VpnService","Cannot include myself: $packageName")
+            Log.d(TAG, "Cannot include myself: $packageName")
             return
         }
         try {
-            Log.d("VpnService","Including $packageName")
+            Log.d(TAG, "Including $packageName")
             builder.addAllowedApplication(packageName)
-        } catch (e: Exception) {
-            Log.w("VpnService", "Failed to include $packageName: ${e.message}")
+        } catch (e: Throwable) {
+            Log.w(TAG, "Failed to include $packageName: ${e.message}")
         }
     }
 
     fun addExcludePackage(builder: Builder, packageName: String) {
         try {
-            Log.d("VpnService","Excluding $packageName")
+            Log.d(TAG, "Excluding $packageName")
             builder.addDisallowedApplication(packageName)
-        } catch (e: Exception) {
-            Log.w("VpnService", "Failed to exclude $packageName: ${e.message}")
+        } catch (e: Throwable) {
+            Log.w(TAG, "Failed to exclude $packageName: ${e.message}")
         }
     }
 
-    override fun openTun(options: TunOptions): Int {
-        var hasPermission = false
-        for (i in 0 until 20) {
-            if (prepare(this) != null) {
-                Log.w("VPN", "android: missing vpn permission")
-            } else {
-                hasPermission = true
-                break
-            }
-            Thread.sleep(50)
-        }
-
-        if (!hasPermission) {
-             error("android: missing vpn permission")
-    }
-//        service.fileDescriptor?.close()
-
+    private fun buildVpnInterface(options: TunOptions): ParcelFileDescriptor {
         val builder = Builder()
             .setSession("hiddify")
             .setMtu(options.mtu)
@@ -166,33 +151,31 @@ class VPNService : VpnService(), PlatformInterfaceWrapper {
                 val appList = Settings.perAppProxyList
                 if (Settings.perAppProxyMode == PerAppProxyMode.INCLUDE) {
                     appList.forEach {
-                        addIncludePackage(builder,it)
+                        addIncludePackage(builder, it)
                     }
-//                    addIncludePackage(builder,packageName)
                 } else {
                     appList.forEach {
-                        addExcludePackage(builder,it)
+                        addExcludePackage(builder, it)
                     }
-                    addExcludePackage(builder,packageName)
+                    // Don't exclude ourselves — protect(fd) handles routing loop prevention.
+                    // Calling addDisallowedApplication(packageName) triggers getPackageUid
+                    // inside establish() which crashes on some TV devices (Sony Bravia, Hisense)
+                    // with INTERACT_ACROSS_USERS SecurityException.
                 }
             } else {
                 val includePackage = options.includePackage
                 if (includePackage.hasNext()) {
                     while (includePackage.hasNext()) {
-                        addIncludePackage(builder,includePackage.next())
+                        addIncludePackage(builder, includePackage.next())
                     }
-                    //                    addIncludePackage(builder,packageName)
-                }else {
-                    val excludePackage = options.excludePackage
-                    if (excludePackage.hasNext()) {
-                        while (excludePackage.hasNext()) {
-                            addExcludePackage(builder, excludePackage.next())
-                        }
-                    }
-
-                    addExcludePackage(builder, packageName)
                 }
-                
+                val excludePackage = options.excludePackage
+                if (excludePackage.hasNext()) {
+                    while (excludePackage.hasNext()) {
+                        addExcludePackage(builder, excludePackage.next())
+                    }
+                }
+                // Same as v2.3.0: don't auto-exclude self, protect(fd) is sufficient
             }
         }
 
@@ -209,7 +192,28 @@ class VPNService : VpnService(), PlatformInterfaceWrapper {
             systemProxyEnabled = false
         }
 
-        val pfd = builder.establish() ?: error("android: the application is not prepared or is revoked")
+        return builder.establish()
+            ?: error("android: the application is not prepared or is revoked")
+    }
+
+    override fun openTun(options: TunOptions): Int {
+        var hasPermission = false
+        for (i in 0 until 20) {
+            if (prepare(this) != null) {
+                Log.w(TAG, "android: missing vpn permission")
+            } else {
+                hasPermission = true
+                break
+            }
+            Thread.sleep(50)
+        }
+
+        if (!hasPermission) {
+            error("android: missing vpn permission")
+        }
+
+        val pfd = buildVpnInterface(options)
+
         service.fileDescriptor = pfd
         return pfd.fd
     }
