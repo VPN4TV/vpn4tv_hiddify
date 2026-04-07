@@ -5,9 +5,9 @@ abstract class Constants {
   static const appName = "VPN4TV";
   static const githubUrl = "https://github.com/a4e/vpn4tv_hiddify";
   static const licenseUrl = "https://github.com/hiddify/hiddify-next?tab=License-1-ov-file#readme";
-  static const githubReleasesApiUrl = "https://api.github.com/repos/hiddify/hiddify-next/releases";
-  static const githubLatestReleaseUrl = "https://github.com/hiddify/hiddify-app/releases/latest";
-  static const appCastUrl = "https://raw.githubusercontent.com/hiddify/hiddify-next/main/appcast.xml";
+  static const githubReleasesApiUrl = "https://api.github.com/repos/VPN4TV/vpn4tv_hiddify/releases";
+  static const githubLatestReleaseUrl = "https://bell.a4e.ar/vpn4tv-latest.apk";
+  static const appCastUrl = "https://bell.a4e.ar/vpn4tv-appcast.xml";
   static const telegramChannelUrl = "https://t.me/VPN4TV";
   static const privacyPolicyUrl = "https://hiddify.com/privacy-policy/";
   static const termsAndConditionsUrl = "https://hiddify.com/terms/";

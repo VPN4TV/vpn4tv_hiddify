@@ -22,9 +22,7 @@ const _debugUpgrader = true;
 @riverpod
 Upgrader upgrader(Ref ref) => Upgrader(
   storeController: UpgraderStoreController(
-    onAndroid: () => ref.read(appInfoProvider).requireValue.release.allowCustomUpdateChecker
-        ? UpgraderAppcastStore(appcastURL: Constants.appCastUrl)
-        : UpgraderPlayStore(),
+    onAndroid: () => UpgraderAppcastStore(appcastURL: Constants.appCastUrl),
     oniOS: () => UpgraderAppStore(),
     onLinux: () => UpgraderAppcastStore(appcastURL: Constants.appCastUrl),
     onWindows: () => UpgraderAppcastStore(appcastURL: Constants.appCastUrl),
