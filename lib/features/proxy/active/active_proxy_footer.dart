@@ -11,6 +11,7 @@ import 'package:hiddify/features/proxy/active/ip_widget.dart';
 import 'package:hiddify/features/proxy/model/proxy_failure.dart';
 import 'package:hiddify/features/stats/notifier/stats_notifier.dart';
 import 'package:hiddify/gen/fonts.gen.dart';
+import 'package:hiddify/features/proxy/overview/proxies_overview_page.dart';
 import 'package:hiddify/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -40,7 +41,13 @@ class ActiveProxyFooter extends HookConsumerWidget {
                         icon: FluentIcons.arrow_routing_20_regular,
                         text: proxy.selectedName.isNotNullOrBlank ? proxy.selectedName! : proxy.name,
                         semanticLabel: t.proxies.activeProxySemanticLabel,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (_) => const ProxiesOverviewPage(),
+                            ),
+                          );
+                        },
                       ),
                       const Gap(8),
                       switch (ipInfo) {
@@ -171,14 +178,14 @@ class _InfoProp extends StatelessWidget {
     );
 
     if (onTap != null) {
-      return FocusableActionDetector(
-        // Позволяет виджету получать фокус
-        child: InkWell(
-          onTap: onTap,
+      return InkWell(
+        onTap: onTap,
+        canRequestFocus: true,
+        borderRadius: BorderRadius.circular(8),
+        focusColor: Theme.of(context).colorScheme.primary.withValues(alpha: 0.15),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
           child: content,
-          focusColor: Theme.of(context).focusColor,
-          hoverColor: Theme.of(context).hoverColor,
-          splashColor: Theme.of(context).splashColor,
         ),
       );
     } else {

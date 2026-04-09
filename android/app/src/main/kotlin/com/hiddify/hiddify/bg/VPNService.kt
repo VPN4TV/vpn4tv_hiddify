@@ -221,6 +221,17 @@ class VPNService : VpnService(), PlatformInterfaceWrapper {
                 }
                 if (excludeSelf) addExcludePackage(builder, packageName)
             }
+
+            if (!excludeSelf && Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                // Fallback for INTERACT_ACROSS_USERS devices: can't exclude self,
+                // so explicitly exclude loopback from TUN to keep gRPC on 127.0.0.1 working
+                try {
+                    builder.excludeRoute(android.net.IpPrefix(java.net.InetAddress.getByName("127.0.0.0"), 8))
+                    Log.i(TAG, "Excluded loopback from TUN for gRPC fallback")
+                } catch (e: Throwable) {
+                    Log.w(TAG, "Failed to exclude loopback: ${e.message}")
+                }
+            }
         }
 
         if (data.isHTTPProxyEnabled && Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
