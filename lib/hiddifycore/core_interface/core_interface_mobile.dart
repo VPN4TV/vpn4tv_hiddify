@@ -8,6 +8,7 @@ import 'package:hiddify/core/model/directories.dart';
 import 'package:hiddify/core/utils/laststeam.dart';
 import 'package:hiddify/hiddifycore/core_interface/core_interface.dart';
 import 'package:hiddify/hiddifycore/core_interface/mtls_channel_cred.dart';
+import 'package:hiddify/hiddifycore/core_interface/protected_grpc_connector.dart';
 import 'package:hiddify/hiddifycore/generated/v2/hcore/hcore_service.pbgrpc.dart';
 import 'package:hiddify/hiddifycore/generated/v2/hello/hello.pb.dart';
 import 'package:hiddify/hiddifycore/generated/v2/hello/hello_service.pbgrpc.dart';
@@ -82,17 +83,17 @@ class CoreInterfaceMobile extends CoreInterface with InfraLogger {
     //   credentials: MTLSChannelCredentials(serverPublicKey: serverPublicKey, clientPrivateKey: cert.privateKey as ECPrivateKey),
     // );
     fgClient = CoreClient(
-      ClientChannel(
-        '127.0.0.1',
-        port: portFront,
+      ClientTransportConnectorChannel(
+        ProtectedTransportConnector('127.0.0.1', portFront, methodChannel,
+            options: ChannelOptions(credentials: channelOption)),
         options: ChannelOptions(credentials: channelOption),
       ),
     );
 
     bgClient = CoreClient(
-      ClientChannel(
-        '127.0.0.1',
-        port: portBack,
+      ClientTransportConnectorChannel(
+        ProtectedTransportConnector('127.0.0.1', portBack, methodChannel,
+            options: ChannelOptions(credentials: channelOption)),
         options: ChannelOptions(credentials: channelOption),
       ),
     );

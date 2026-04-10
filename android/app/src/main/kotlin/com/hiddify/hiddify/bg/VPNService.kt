@@ -2,12 +2,14 @@ package com.hiddify.hiddify.bg
 import android.util.Log
 
 import com.hiddify.hiddify.Settings
+import android.content.Context
 import android.content.Intent
 import android.net.ProxyInfo
 import android.net.VpnService
 import android.os.Build
 import android.os.IBinder
 import android.os.ParcelFileDescriptor
+import android.os.UserManager
 import com.hiddify.core.libbox.Notification
 import com.hiddify.hiddify.constant.PerAppProxyMode
 import com.hiddify.hiddify.ktx.toIpPrefix
@@ -15,11 +17,18 @@ import com.hiddify.core.libbox.TunOptions
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import java.io.File
 
 class VPNService : VpnService(), PlatformInterfaceWrapper {
 
     companion object {
         private const val TAG = "A/VPNService"
+        // Expose instance for protect_socket MethodChannel calls
+        @Volatile var instance: VPNService? = null
+    }
+
+    init {
+        instance = this
     }
 
     private val service = BoxService(this, this)
@@ -53,6 +62,70 @@ class VPNService : VpnService(), PlatformInterfaceWrapper {
 
     var systemProxyAvailable = false
     var systemProxyEnabled = false
+
+    /**
+     * Detect if device has multiple user profiles (restricted profiles).
+     * On such devices, addDisallowedApplication() triggers SIGABRT via
+     * getPackageUid + INTERACT_ACROSS_USERS. Skip self-exclude on these devices.
+     */
+    private fun hasMultipleUserProfiles(): Boolean {
+        return try {
+            val userManager = getSystemService(Context.USER_SERVICE) as? UserManager
+            val profiles = userManager?.userProfiles ?: emptyList()
+            val result = profiles.size > 1
+            if (result) Log.i(TAG, "Multi-user device detected (${profiles.size} profiles) — skipping self-exclude")
+            result
+        } catch (e: Throwable) {
+            Log.w(TAG, "Failed to check user profiles: ${e.message}")
+            false
+        }
+    }
+
+    /**
+     * Protect TCP sockets connected to 127.0.0.1 by reading /proc/self/net/tcp.
+     * This prevents gRPC connections from being routed through the VPN TUN.
+     * Called after establish() when self-exclude is not used.
+     */
+    private fun protectLoopbackSockets() {
+        try {
+            val tcpFile = File("/proc/self/net/tcp")
+            if (!tcpFile.exists()) return
+
+            val lines = tcpFile.readLines().drop(1) // skip header
+            val fdDir = File("/proc/self/fd")
+
+            for (line in lines) {
+                val parts = line.trim().split("\\s+".toRegex())
+                if (parts.size < 10) continue
+
+                val localAddr = parts[1] // e.g. "0100007F:3039"
+                val addrParts = localAddr.split(":")
+                if (addrParts.size != 2) continue
+
+                // 0100007F = 127.0.0.1 in little-endian hex
+                val ip = addrParts[0]
+                if (ip != "0100007F") continue
+
+                val inode = parts[9]
+                if (inode == "0") continue
+
+                // Find fd with this inode in /proc/self/fd
+                val fds = fdDir.listFiles() ?: continue
+                for (fd in fds) {
+                    try {
+                        val link = java.nio.file.Files.readSymbolicLink(fd.toPath()).toString()
+                        if (link == "socket:[$inode]") {
+                            val fdNum = fd.name.toIntOrNull() ?: continue
+                            protect(fdNum)
+                            Log.d(TAG, "Protected loopback socket fd=$fdNum inode=$inode")
+                        }
+                    } catch (_: Throwable) {}
+                }
+            }
+        } catch (e: Throwable) {
+            Log.w(TAG, "Failed to protect loopback sockets: ${e.message}")
+        }
+    }
 
     fun addIncludePackage(builder: Builder, packageName: String) {
         if (packageName == this.packageName) {
@@ -268,13 +341,25 @@ class VPNService : VpnService(), PlatformInterfaceWrapper {
         // Cache all data from one-shot iterators so we can retry
         val data = cacheTunOptions(options)
 
-        // Try with self-exclusion first (needed for gRPC over localhost).
-        // If establish() fails (INTERACT_ACROSS_USERS on some TVs), retry without.
-        val pfd = try {
-            buildVpnInterface(data, excludeSelf = true)
-        } catch (e: Throwable) {
-            Log.w(TAG, "establish() failed with self-exclusion, retrying without: ${e.message}")
-            buildVpnInterface(data, excludeSelf = false)
+        // Multi-user devices (Sony Bravia, Hisense, TCL with restricted profiles)
+        // SIGABRT when addDisallowedApplication calls getPackageUid.
+        // On these devices, skip self-exclude and protect gRPC sockets instead.
+        val isMultiUser = hasMultipleUserProfiles()
+
+        val pfd = if (isMultiUser) {
+            val result = buildVpnInterface(data, excludeSelf = false)
+            // Protect existing gRPC sockets so they bypass TUN
+            protectLoopbackSockets()
+            result
+        } else {
+            try {
+                buildVpnInterface(data, excludeSelf = true)
+            } catch (e: Throwable) {
+                Log.w(TAG, "establish() failed with self-exclusion, retrying without: ${e.message}")
+                val result = buildVpnInterface(data, excludeSelf = false)
+                protectLoopbackSockets()
+                result
+            }
         }
 
         service.fileDescriptor = pfd

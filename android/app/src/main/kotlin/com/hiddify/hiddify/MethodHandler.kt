@@ -175,7 +175,67 @@ class MethodHandler(private val scope: CoroutineScope) : FlutterPlugin,
 //                }
 //            }
 
+            "protect_socket" -> {
+                // Protect a TCP socket by its local port so it bypasses VPN TUN.
+                // Dart gRPC creates sockets to 127.0.0.1 that need protection
+                // on multi-user Android TV devices where self-exclude isn't possible.
+                scope.launch(Dispatchers.IO) {
+                    result.runCatching {
+                        val args = call.arguments as Map<*, *>
+                        val localPort = args["localPort"] as Int
+                        val vpn = com.hiddify.hiddify.bg.VPNService.instance
+                        if (vpn == null) {
+                            success(false)
+                            return@launch
+                        }
+                        val protected = protectSocketByLocalPort(vpn, localPort)
+                        success(protected)
+                    }
+                }
+            }
+
             else -> result.notImplemented()
         }
+    }
+
+    /**
+     * Find a TCP socket fd by its local port via /proc/self/net/tcp
+     * and call VpnService.protect() on it.
+     */
+    private fun protectSocketByLocalPort(vpn: android.net.VpnService, localPort: Int): Boolean {
+        try {
+            val portHex = String.format("%04X", localPort)
+            val tcpFile = java.io.File("/proc/self/net/tcp")
+            if (!tcpFile.exists()) return false
+
+            for (line in tcpFile.readLines().drop(1)) {
+                val parts = line.trim().split("\\s+".toRegex())
+                if (parts.size < 10) continue
+                val localAddr = parts[1]
+                // Match 0100007F:PORT (127.0.0.1) or 00000000:PORT (0.0.0.0)
+                if (!localAddr.endsWith(":$portHex")) continue
+                val ip = localAddr.split(":")[0]
+                if (ip != "0100007F" && ip != "00000000") continue
+
+                val inode = parts[9]
+                if (inode == "0") continue
+
+                val fdDir = java.io.File("/proc/self/fd")
+                for (fd in fdDir.listFiles() ?: emptyArray()) {
+                    try {
+                        val link = java.nio.file.Files.readSymbolicLink(fd.toPath()).toString()
+                        if (link == "socket:[$inode]") {
+                            val fdNum = fd.name.toIntOrNull() ?: continue
+                            vpn.protect(fdNum)
+                            Log.d(TAG, "Protected socket fd=$fdNum port=$localPort inode=$inode")
+                            return true
+                        }
+                    } catch (_: Throwable) {}
+                }
+            }
+        } catch (e: Throwable) {
+            Log.w(TAG, "protectSocketByLocalPort failed: ${e.message}")
+        }
+        return false
     }
 }
